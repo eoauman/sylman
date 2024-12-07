@@ -1,0 +1,78 @@
+# Dependency directories
+node_modules/
+
+# Metadata
+local_metadata/
+
+# Environment variables
+.env
+.env.*
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Directory for uploaded files (if not meant to be stored in repo)
+/uploads
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional tsc (TypeScript) outputs
+*.tsbuildinfo
+dist/
+
+# Optional MacOS folder attribute
+.DS_Store
+
+# Optional JetBrains IDE files
+.idea/
+
+# Optional VSCode files
+.vscode/
+
+# Optional thumbnails created by windows
+Thumbs.db
+
+# Optional files created by MacOS
+._*
+
+# Optional profiles created by Firefox
+profile
+
+# Optional folder created by the Windows Subsystem for Linux
+wslconfig
+
+# Ignore Heroku-related files
+.local/
+.heroku/
+.herokuignore
+
+# Ignore PM2-related files
+.pm2/
+
+# Ignore SSH-related files
+.ssh/
+
+# Ignore MongoDB configuration file
+.mongorc.js
+
+# Ignore specific package files
+libssl1.1_1.1.0g-2ubuntu4_amd64.deb
+package.json.bak
+
+# Ignore user-specific configurations
+.profile
+.netrc

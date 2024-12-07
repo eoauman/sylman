@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Title Here</title>
+    <style>
+        /* Your existing CSS */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+        }
+
+        .content {
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        @media screen and (max-width: 600px) {
+            .table-responsive {
+                width: 100%;
+                overflow-x: auto;
+            }
+
+            /* Styles for Word export */
+            .word-export {
+                width: 6.5in;
+                /* Width of the content area in Word */
+                margin: 0 auto;
+                padding: 1in;
+                /* Approximate margins for Word */
+                page-break-after: always;
+                /* Control page breaks */
+            }
+
+            .iframe-container {
+                position: relative;
+                width: 100%;
+                padding-bottom: 56.25%;
+                /* Aspect ratio Example: 16:9 aspect ratio -> 9 / 16 = 0.5625 */
+                height: 0;
+                overflow: hidden;
+            }
+
+            .iframe-container iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            .tab {
+                overflow: hidden;
+                border: 1px solid #ccc;
+                background-color: #f1f1f1;
+            }
+
+            .tab button {
+                background-color: inherit;
+                float: left;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                padding: 14px 16px;
+                transition: 0.3s;
+                font-size: 17px;
+            }
+
+            .tab button:hover {
+                background-color: #ddd;
+            }
+
+            .tab button.active {
+                background-color: #ccc;
+            }
+
+            .tabcontent {
+                display: none;
+                padding: 6px 12px;
+                border: 1px solid #ccc;
+                border-top: none;
+            }
+
+            /* Adjust other styles as needed for your specific content */
+        }
+
+        /* Moved @media print outside of @media screen */
+        @media print {
+            .word-export {
+                width: 6.5in;
+                /* Width of the content area in Word */
+                margin: 0 auto;
+                padding: 1in;
+                /* Approximate margins for Word */
+                page-break-after: always;
+                /* Control page breaks */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <!-- Your content goes here -->
+        <div id="jcn_syllabus" style="font-family: georgia;">
+            <p><img style="float: right;" src="TUJ_logo.png" alt="TUJ_logo.png" /></p>
+            <p>Jefferson College of Nursing<br />Course Name: <span style="background-color: #f8cac6;">[Full title of
+                    course from JCN Student Handbook]</span><br />Course Number: <span
+                    style="background-color: #f8cac6;">[NU# with suffix]</span><br />Credits: <span
+                    style="background-color: #f8cac6;">[Total # (# didactic, # lab, # simulation, #
+                    clinical)]</span><br />Course Semester: <span style="background-color: #f8cac6;">[Include semester
+                    and year]</span><br />Placement: <span style="background-color: #f8cac6;">[Year #, Semester
+                    #]</span><br />Course Type: <span style="background-color: #f8cac6;">[Lecture, studio, lab, seminar
+                    or other]</span><br />Course Delivery: <span style="background-color: #f8cac6;">[List all modes
+                    (synchronous, asynchronous online, online, hybrid, hiflex)]&nbsp;</span><br /><a id="6937986"
+                    class="instructure_file_link instructure_scribd_file inline_disabled"
+                    href="/courses/7397/files/7007304?wrap=1" target="_blank" rel="noopener"
+                    data-canvas-previewable="true">NU ### Syllabus</a></p>
+            <p style="text-align: center;"><span
+                    style="background-color: #152456; display: block; color: white;">Faculty Information</span></p>
+            <p>Faculty: <span style="background-color: #f8cac6;">[Name, credentials] </span>(Course Lead)<br />Email:
+                <span style="background-color: #f8cac6;">[name@jefferson.edu]</span><br />Phone: <span
+                    style="background-color: #f8cac6;">[###]</span><br />Office: <span
+                    style="background-color: #f8cac6;">[Building, Room Number]</span><br />Office hours: <span
+                    style="background-color: #f8cac6;">[Insert times available for student meetings and by appointment
+                    with contact information included. Consider face-to-face, virtual (insert Zoom link as
+                    needed)]</span></p>
+            <p>&nbsp;</p>
+            <p>Faculty: <span style="background-color: #f8cac6;">[Name, credentials]&nbsp;</span><br />Email: <span
+                    style="background-color: #f8cac6;">[name@jefferson.edu]</span><br />Phone: <span
+                    style="background-color: #f8cac6;">[###]</span><br />Office: <span
+                    style="background-color: #f8cac6;">[Building, Room Number]</span><br />Office hours: <span
+                    style="background-color: #f8cac6;">[Insert times available for student meetings and by appointment
+                    with contact information included. Consider face-to-face, virtual (insert Zoom link as
+                    needed)]</span></p>
+            <hr style="border-top: 3px double #373737; margin: 20px 0;" />
+            <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'CourseDetails')">Course Details</button>
+            <button class="tablinks" onclick="openTab(event, 'GradesAssignments')">Grades & Assignments</button>
+            <button class="tablinks" onclick="openTab(event, 'PoliciesServices')">Policies & Services</button>
+        </div>
+        <div id="CourseDetails" class="tabcontent">
+                <hr style="border-top: 3px double #373737; margin: 20px 0;" />
+                <h3 id="details">Course Details</h3>
+                <p style="text-align: center;"><span
+                        style="background-color: #152456; display: block; color: white;">Course
+                        Prerequisites&nbsp;</span></p>
+                <p><span style="background-color: #f8cac6; font-family: georgia, palatino;">[Add prerequisites or
+                        co-requisites here]</span></p>
+                <p style="text-align: center;"><span
+                        style="background-color: #152456; display: block; color: white;">Course Description</span></p>
+                <p><span style="background-color: #f8cac6;">[Add course description from Jefferson College of Nursing
+                        Student Handbook &amp; Course Catalog here]</span><strong> </strong></p>
+                <p style="text-align: center;"><span
+                        style="background-color: #152456; display: block; color: white;">Program Outcomes and Student
+                        Learning Outcomes</span></p>
+                <table style="border-collapse: collapse; width: 100%; height: 261px;" border="0">
+                    <tbody>
+                        <tr style="height: 29px;">
+                            <td style="width: 50%; height: 29px;">
+                                <p><strong>PROGRAM OUTCOMES</strong><br />Upon completion of the program, the student
+                                    will be able to:</p>
+                            </td>
+                            <td style="width: 50%; height: 29px;">
+                                <p><strong>STUDENT LEARNING OUTCOMES</strong><br />Upon completion of this course, the
+                                    student will be able to:</p>
+                            </td>
+                        </tr>
+                        <tr style="height: 29px;">
+                            <td style="width: 50%; height: 29px;">
+                                <ol>
+                                    <li>Apply knowledge and principles from the arts, sciences, and humanities to the
+                                        developmental, psychosocial, spiritual, and physical care of individuals,
+                                        families, communities, and populations. (Essential I)</li>
+                                </ol>
+                            </td>
+                            <td style="width: 50%; height: 29px; vertical-align: top;">1.1 <span
+                                    style="background-color: #f8cac6;">[Add outcome here]</span><br />1.2 <span
+                                    style="background-color: #f8cac6;">[Add outcome here]</span></td>
+                        </tr>
+                        <tr style="height: 29px;">
+                            <td style="width: 50%; height: 29px;">
+                                <ol start="2">
+                                    <li>Integrate knowledge and skills in leadership, quality and patient safety into
+                                        the provision of nursing care to individuals, families, communities, and
+                                        populations across the care continuum. (Essential II)</li>
+                                </ol>
+                            </td>
+                            <td style="width: 50%; height: 29px; vertical-align: top;">2.1 <span
+                                    style="background-color: #f8cac6;">[Add outcome here]</span><br />2.2 <span
+                                    style="background-color: #f8cac6;">[Add outcome here]</span></td>
+                        </tr>
+                        <tr style="height: 29px;">
+                            <td style="width: 50%; height: 29px;">
+                                <ol start="3">
+                                    <li>Incorporate reflection, critical appraisal, clinical reasoning, and current best
+                                        evidence into the delivery of care to individuals, families, communities, and
+                                        populations. (Essential III)</li>
+                                </ol>
+                            </td>
+                            <td style="width: 50%; height: 29px; vertical-align: top;">3.1 <span
+                                    style="background-color: #f8cac6;">[Add outcome here]</span><br />3.2 <span
+                                    style="background-color: #f8cac6;">[Add outcome here]</span></td>
+                        </tr>
+                        <tr style="height: 29px;">
+                            <td style="width: 50%; height: 29px;">
+                                <ol start="4">
+                                    <li>Utilize information management and emerging healthcare technologies in the
+                                        delivery of quality nursing care. (Essentials II, IV)</li>
+                                </ol>
+                            </td>
+                            <td style="width: 50%; height: 29px; vertical-align: top;">4.1 <span
+                                    style="background-color: #f8cac6;">[Add outcome here]</span><br />4.2 <span
+                                    style="background-color: #f8cac6;">[Add outcome here]</span></td>
+                        </tr>
+                        <tr style="height: 29px;">
+                            <td style="width: 50%; height: 29px;">
+                                <ol start="5">
+                                    <li>Recognize the influence healthcare policies, including financial, legal and
+                                        regulatory, have on health system functioning and the broader determinants of
+                                        health. (Essential V)</li>
+                                </ol>
+                            </td>
+                            <td style="width: 50%; height: 29px; vertical-align: top;">5.1 <span
+                                    style="background-color: #f8cac6;">[Add outcome here]</span><br />5.2 <span
+                                    style="background-color: #f8cac6;">[Add outcome here]</span></td>
+                        </tr>
+                        <tr style="height: 29px;">
+                            <td style="width: 50%; height: 29px;">
+                                <ol start="6">
+                                    <li>Utilize open communication, shared-decision making, creative problem solving,
+                                        and mutual respect when collaborating with nursing and interprofessional teams.
+                                        (Essential VI)</li>
+                                </ol>
+                            </td>
+                            <td style="width: 50%; height: 29px; vertical-align: top;">6.1 <span
+                                    style="background-color: #f8cac6;">[Add outcome here]</span><br />6.2 <span
+                                    style="background-color: #f8cac6;">[Add outcome here]</span></td>
+                        </tr>
+                        <tr style="height: 29px;">
+                            <td style="width: 50%; height: 29px;">
+                                <ol start="7">
+                                    <li>Incorporate strategies of health promotion and disease prevention in addressing
+                                        health outcomes and determinants in communities and populations. (Essential VII)
+                                    </li>
+                                </ol>
+                            </td>
+                            <td style="width: 50%; height: 29px; vertical-align: top;">7.1 <span
+                                    style="background-color: #f8cac6;">[Add outcome here]</span><br />7.2 <span
+                                    style="background-color: #f8cac6;">[Add outcome here]</span></td>
+                        </tr>
+                        <tr style="height: 29px;">
+                            <td style="width: 50%; height: 29px;">
+                                <ol start="8">
+                                    <li>Demonstrate professionalism and the values of altruism, autonomy, human dignity,
+                                        integrity, and social justice in the nursing care of individuals, families,
+                                        communities and populations. (Essentials VIII, IX)</li>
+                                </ol>
+                            </td>
+                            <td style="width: 50%; height: 29px; vertical-align: top;">8.1 <span
+                                    style="background-color: #f8cac6;">[Add outcome here]</span><br />8.2 <span
+                                    style="background-color: #f8cac6;">[Add outcome here]</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="overflow: hidden;">
+                    <p style="text-align: center;"><span
+                            style="background-color: #152456; display: block; color: white;"><span
+                                style="background-color: #152456; display: block; color: white;">Student Learning
+                                Outcomes and Related Assessments</span></span></p>
+                    <table style="border-collapse: collapse; width: 100%; height: 261px;" border="1">
+                        <tbody>
+                            <tr style="height: 29px; background-color: #d9d9d9;">
+                                <td style="width: 2%; text-align: center;">#</td>
+                                <td style="width: 49%; height: 29px; text-align: center;"><strong>Learning
+                                        Outcome</strong></td>
+                                <td style="width: 49%; height: 29px; text-align: center;"><strong>Corresponding
+                                        Assessment</strong></td>
+                            </tr>
+                            <tr style="text-align: center;">
+                                <td style="width: 2%; height: 23px;">1.</td>
+                                <td style="height: 23px; width: 49%; text-align: left;"><span
+                                        style="background-color: #f8cac6;">[Add objective here]</span></td>
+                                <td style="width: 49%; height: 23px; text-align: left;" width="630"><span
+                                        style="background-color: #f8cac6;">[Add assessment here]</span></td>
+                            </tr>
+                            <tr style="text-align: center;">
+                                <td style="width: 2%; height: 29px;">2.</td>
+                                <td style="height: 29px; width: 49%; text-align: left;"><span
+                                        style="background-color: #f8cac6;">[Add objective here]</span></td>
+                                <td style="width: 49%; height: 29px; text-align: left;" width="630"><span
+                                        style="background-color: #f8cac6;">[Add assessment here]</span></td>
+                            </tr>
+                            <tr style="text-align: center;">
+                                <td style="width: 2%; height: 23px; text-align: center;">3.</td>
+                                <td style="height: 23px; width: 49%; text-align: left;"><span
+                                        style="background-color: #f8cac6;">[Add objective here]</span></td>
+                                <td style="width: 49%; height: 23px; text-align: left;" width="630"><span
+                                        style="background-color: #f8cac6;">[Add assessment here]</span></td>
+                            </tr>
+                            <tr style="height: 29px;">
+                                <td style="width: 2%; height: 29px; text-align: center;">4.</td>
+                                <td style="height: 29px; width: 49%; text-align: left;"><span
+                                        style="background-color: #f8cac6;">[Add objective here]</span></td>
+                                <td style="width: 49%; height: 29px; text-align: left;" width="630"><span
+                                        style="background-color: #f8cac6;">[Add assessment here]</span></td>
+                            </tr>
+                            <tr style="height: 33px;">
+                                <td style="width: 2%; height: 33px; text-align: center;">5.</td>
+                                <td style="height: 33px; width: 49%; text-align: left;"><span
+                                        style="background-color: #f8cac6;">[Add objective here]</span></td>
+                                <td style="width: 49%; height: 33px; text-align: left;" width="630"><span
+                                        style="background-color: #f8cac6;">[Add assessment here]</span></td>
+                            </tr>
+                            <tr style="text-align: center;">
+                                <td style="width: 2%; height: 32px;">6.</td>
+                                <td style="height: 32px; width: 49%; text-align: left;"><span
+                                        style="background-color: #f8cac6;">[Add objective here]</span></td>
+                                <td style="width: 49%; height: 32px; text-align: left;" width="630"><span
+                                        style="background-color: #f8cac6;">[Add assessment here]</span></td>
+                            </tr>
+                            <tr style="height: 29px;">
+                                <td style="width: 2%; height: 29px; text-align: center;">7.</td>
+                                <td style="height: 29px; width: 49%; text-align: left;"><span
+                                        style="background-color: #f8cac6;">[Add objective here]</span></td>
+                                <td style="width: 49%; height: 29px; text-align: left;" width="630"><span
+                                        style="background-color: #f8cac6;">[Add assessment here]</span></td>
+                            </tr>
+                            <tr style="height: 29px;">
+                                <td style="width: 2%; height: 29px; text-align: center;">8.</td>
+                                <td style="height: 29px; width: 49%; text-align: left;"><span
+                                        style="background-color: #f8cac6;">[Add objective here]</span></td>
+                                <td style="width: 49%; height: 29px; text-align: left;" width="630"><span
+                                        style="background-color: #f8cac6;">[Add assessment here]</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="text-align: center;"><span
+                        style="background-color: #152456; display: block; color: white;">Required Course
+                        Materials</span></p>
+                <p><span style="background-color: #f8cac6;">[Add books, supplies, and/or technology required to
+                        participate in the course]</span></p>
+                <p style="text-align: center;"><span
+                        style="background-color: #152456; display: block; color: white;">Course Technologies</span></p>
+                <p>This course requires the use of Canvas to access materials and submit assignments. Some videos posted
+                    via Canvas will require the use of speakers or headphones. The instructor may utilize
+                    web-conferencing tools to deliver synchronous material. In order to participate in synchronous
+                    sessions, you should have a computer, a webcam, headphones, and microphone.</p>
+                <p>This course requires the use of Microsoft Office (i.e., Word, Excel, PowerPoint). Students can gain
+                    access to these materials by visiting Jefferson's <a class="inline_disabled"
+                        href="https://www.jefferson.edu/academics/student-email/office365-students.html" target="_blank"
+                        rel="noopener">Office 365 for Students page.</a></p>
+                <p>Students should check their Canvas courses and Jefferson email daily for course updates.&nbsp;</p>
+                <p><span style="background-color: #f8cac6;">[Identify other required technologies, such as ATI,
+                        ExamSoft, Shadow Health, Cascade, Box, Google Docs, etc.]&nbsp;</span></p>
+                <p>Information on student support for Canvas and other learning technologies can found on
+                    Jefferson&rsquo;s <a class="inline_disabled" href="https://canvas.jefferson.edu/Help.cfm"
+                        target="_blank" rel="noopener">Canvas Help page</a>.</p>
+                <p>&nbsp;<strong>Accessibility of course technologies</strong></p>
+                <ul>
+                    <li><a class="external" href="https://community.canvaslms.com/docs/DOC-2061" target="_blank"
+                            rel="noopener">Canvas</a></li>
+                    <li><a class="external" href="https://zoom.us/accessibility" target="_blank" rel="noopener">Zoom</a>
+                    </li>
+                    <li><span style="background-color: #f8cac6;">[Add links to other accessibility standards/policies as
+                            needed.]</span></li>
+                </ul>
+                <p style="text-align: center;"><span
+                        style="background-color: #152456; display: block; color: white;">Instructional Methods</span>
+                </p>
+                <p><span style="background-color: #f8cac6;">[Insert possible instructional methods (readings,
+                        video-based lectures, individual activities, discussion boards)]</span></p>
+                <p style="text-align: center;"><span
+                        style="background-color: #152456; display: block; color: white;">Course Communications</span>
+                </p>
+                <p>To facilitate communication, the university requires you to have an e-mail account ending in
+                    @students.jefferson.edu. Student can log into their Jefferson email accounts on the <a
+                        class="inline_disabled" href="https://outlook.office365.com/students.jefferson.edu"
+                        target="_blank" rel="noopener">O365 login for TJU Students</a>.&nbsp;</p>
+                <p><span style="background-color: #f8cac6;">[Insert communication/response expectations for timing by
+                        faculty. For example, &ldquo;During the semester, I will generally respond to emails within 24
+                        hours of receiving them during the week and with 48 hours on weekends.&rdquo;]</span></p>
+                <p id="topout" style="text-align: center;"><span
+                        style="background-color: #152456; display: block; color: white;">Topical Outline of
+                        Content</span></p>
+                <div style="overflow: hidden;">
+                    <p style="text-align: left;"><span style="background-color: #f8cac6;">[List class sessions by date,
+                            with the topics/content to be covered. Please indicate major assignments/project dates, exam
+                            dates.]</span></p>
+                    <table style="border-collapse: collapse; width: 100%; height: 493px;" border="1">
+                        <tbody>
+                            <tr style="background-color: #d9d9d9;">
+                                <td style="width: 5%; text-align: center; height: 29px;"><strong>Module</strong></td>
+                                <td style="width: 35%; text-align: center; height: 29px;"><strong>Topic</strong></td>
+                                <td style="width: 15%; text-align: center; height: 29px;"><strong>Dates</strong></td>
+                                <td style="width: 45%; text-align: center; height: 29px;"><strong>Assignments</strong>
+                                </td>
+                            </tr>
+                            <tr style="height: 29px;">
+                                <td style="width: 5%; text-align: center; height: 29px;">1</td>
+                                <td style="width: 35%; height: 29px;"><span style="background-color: #f8cac6;">[Add
+                                        topic here]</span></td>
+                                <td style="width: 15%; text-align: center; height: 29px;"><span
+                                        style="background-color: #f8cac6;">??/?? - ??/??</span></td>
+                                <td style="width: 45%; height: 29px;">
+                                    <p><span style="background-color: #f8cac6;">[Add assignment 1
+                                            here]</span><br /><span style="background-color: #f8cac6;">[Add assignment 2
+                                            here]</span></p>
+                                </td>
+                            </tr>
+                            <tr style="height: 29px;">
+                                <td style="width: 5%; text-align: center; height: 29px;">2</td>
+                                <td style="width: 35%; height: 29px;"><span style="background-color: #f8cac6;">[Add
+                                        topic here]</span></td>
+                                <td style="width: 15%; text-align: center; height: 29px;"><span
+                                        style="background-color: #f8cac6;">??/?? - ??/??</span></td>
+                                <td style="width: 45%; height: 29px;">
+                                    <p><span style="background-color: #f8cac6;">[Add assignment 1
+                                            here]</span><br /><span style="background-color: #f8cac6;">[Add assignment 2
+                                            here]</span></p>
+                                </td>
+                            </tr>
+                            <tr style="height: 29px;">
+                                <td style="width: 5%; text-align: center; height: 29px;">3</td>
+                                <td style="width: 35%; height: 29px;"><span style="background-color: #f8cac6;">[Add
+                                        topic here]</span></td>
+                                <td style="width: 15%; text-align: center; height: 29px;"><span
+                                        style="background-color: #f8cac6;">??/?? - ??/??</span></td>
+                                <td style="width: 45%; height: 29px;">
+                                    <p><span style="background-color: #f8cac6;">[Add assignment 1
+                                            here]</span><br /><span style="background-color: #f8cac6;">[Add assignment 2
+                                            here]</span></p>
+                                </td>
+                            </tr>
+                            <tr style="height: 29px;">
+                                <td style="width: 5%; text-align: center; height: 29px;">4</td>
+                                <td style="width: 35%; height: 29px;"><span style="background-color: #f8cac6;">[Add
+                                        topic here]</span></td>
+                                <td style="width: 15%; text-align: center; height: 29px;"><span
+                                        style="background-color: #f8cac6;">??/?? - ??/??</span></td>
+                                <td style="width: 45%; height: 29px;">
+                                    <p><span style="background-color: #f8cac6;">[Add assignment 1
+                                            here]</span><br /><span style="background-color: #f8cac6;">[Add assignment 2
+                                            here]</span></p>
+                                </td>
+                            </tr>
+                            <tr style="height: 29px;">
+                                <td style="width: 5%; text-align: center; height: 29px;">5</td>
+                                <td style="width: 35%; height: 29px;"><span style="background-color: #f8cac6;">[Add
+                                        topic here]</span></td>
+                                <td style="width: 15%; text-align: center; height: 29px;"><span
+                                        style="background-color: #f8cac6;">??/?? - ??/??</span></td>
+                                <td style="width: 45%; height: 29px;">
+                                    <p><span style="background-color: #f8cac6;">[Add assignment 1
+                                            here]</span><br /><span style="background-color: #f8cac6;">[Add assignment 2
+                                            here]</span></p>
+                                </td>
+                            </tr>
+                            <tr style="height: 29px;">
+                                <td style="width: 5%; text-align: center; height: 29px;">6</td>
+                                <td style="width: 35%; height: 29px;"><span style="background-color: #f8cac6;">[Add
+                                        topic here]</span></td>
+                                <td style="width: 15%; text-align: center; height: 29px;"><span
+                                        style="background-color: #f8cac6;">??/?? - ??/??</span></td>
+                                <td style="width: 45%; height: 29px;">
+                                    <p><span style="background-color: #f8cac6;">[Add assignment 1
+                                            here]</span><br /><span style="background-color: #f8cac6;">[Add assignment 2
+                                            here]</span></p>
+                                </td>
+                            </tr>
+                            <tr style="height: 29px;">
+                                <td style="width: 5%; text-align: center; height: 29px;">7</td>
+                                <td style="width: 35%; height: 29px;"><span style="background-color: #f8cac6;">[Add
+                                        topic here]</span></td>
+                                <td style="width: 15%; text-align: center; height: 29px;"><span
+                                        style="background-color: #f8cac6;">??/?? - ??/??</span></td>
+                                <td style="width: 45%; height: 29px;">
+                                    <p><span style="background-color: #f8cac6;">[Add assignment 1
+                                            here]</span><br /><span style="background-color: #f8cac6;">[Add assignment 2
+                                            here]</span></p>
+                                </td>
+                            </tr>
+                            <tr style="background-color: #000000;">
+                                <td style="text-align: center; height: 29px; width: 100%;" colspan="4"><span
+                                        style="color: #ecf0f1;">Fall/Spring Break</span></td>
+                            </tr>
+                            <tr style="height: 29px;">
+                                <td style="width: 5%; text-align: center; height: 29px;">8</td>
+                                <td style="width: 35%; height: 29px;"><span style="background-color: #f8cac6;">[Add
+                                        topic here]</span></td>
+                                <td style="width: 15%; text-align: center; height: 29px;"><span
+                                        style="background-color: #f8cac6;">??/?? - ??/??</span></td>
+                                <td style="width: 45%; height: 29px;">
+                                    <p><span style="background-color: #f8cac6;">[Add assignment 1
+                                            here]</span><br /><span style="background-color: #f8cac6;">]Add assignment 2
+                                            here]</span></p>
+                                </td>
+                            </tr>
+                            <tr style="height: 29px;">
+                                <td style="width: 5%; text-align: center; height: 29px;">9</td>
+                                <td style="width: 35%; height: 29px;"><span style="background-color: #f8cac6;">[Add
+                                        topic here]</span></td>
+                                <td style="width: 15%; text-align: center; height: 29px;"><span
+                                        style="background-color: #f8cac6;">??/?? - ??/??</span></td>
+                                <td style="width: 45%; height: 29px;">
+                                    <p><span style="background-color: #f8cac6;">[Add assignment 1
+                                            here]</span><br /><span style="background-color: #f8cac6;">[Add assignment 2
+                                            here]</span></p>
+                                </td>
+                            </tr>
+                            <tr style="height: 29px;">
+                                <td style="width: 5%; text-align: center; height: 29px;">10</td>
+                                <td style="width: 35%; height: 29px;"><span style="background-color: #f8cac6;">[Add
+                                        topic here]</span></td>
+                                <td style="width: 15%; text-align: center; height: 29px;"><span
+                                        style="background-color: #f8cac6;">??/?? - ??/??</span></td>
+                                <td style="width: 45%; height: 29px;">
+                                    <p><span style="background-color: #f8cac6;">[Add assignment 1
+                                            here]</span><br /><span style="background-color: #f8cac6;">[Add assignment 2
+                                            here]</span></p>
+                                </td>
+                            </tr>
+                            <tr style="height: 29px;">
+                                <td style="width: 5%; text-align: center; height: 29px;">11</td>
+                                <td style="width: 35%; height: 29px;"><span style="background-color: #f8cac6;">[Add
+                                        topic here]</span></td>
+                                <td style="width: 15%; text-align: center; height: 29px;"><span
+                                        style="background-color: #f8cac6;">??/?? - ??/??</span></td>
+                                <td style="width: 45%; height: 29px;">
+                                    <p><span style="background-color: #f8cac6;">[Add assignment 1
+                                            here]</span><br /><span style="background-color: #f8cac6;">[Add assignment 2
+                                            here]</span></p>
+                                </td>
+                            </tr>
+                            <tr style="height: 29px;">
+                                <td style="width: 5%; text-align: center; height: 29px;">12</td>
+                                <td style="width: 35%; height: 29px;"><span style="background-color: #f8cac6;">[Add
+                                        topic here]</span></td>
+                                <td style="width: 15%; text-align: center; height: 29px;"><span
+                                        style="background-color: #f8cac6;">??/?? - ??/??</span></td>
+                                <td style="width: 45%; height: 29px;">
+                                    <p><span style="background-color: #f8cac6;">[Add assignment 1
+                                            here]</span><br /><span style="background-color: #f8cac6;">[Add assignment 2
+                                            here]</span></p>
+                                </td>
+                            </tr>
+                            <tr style="height: 29px;">
+                                <td style="width: 5%; text-align: center; height: 29px;">13</td>
+                                <td style="width: 35%; height: 29px;"><span style="background-color: #f8cac6;">[Add
+                                        topic here]</span></td>
+                                <td style="width: 15%; text-align: center; height: 29px;"><span
+                                        style="background-color: #f8cac6;">??/?? - ??/??</span></td>
+                                <td style="width: 45%; height: 29px;">
+                                    <p><span style="background-color: #f8cac6;">[Add assignment 1
+                                            here]</span><br /><span style="background-color: #f8cac6;">[Add assignment 2
+                                            here]</span></p>
+                                </td>
+                            </tr>
+                            <tr style="height: 29px;">
+                                <td style="width: 5%; text-align: center; height: 29px;">14</td>
+                                <td style="width: 35%; height: 29px;"><span style="background-color: #f8cac6;">[Add
+                                        topic here]</span></td>
+                                <td style="width: 15%; text-align: center; height: 29px;"><span
+                                        style="background-color: #f8cac6;">??/?? - ??/??</span></td>
+                                <td style="width: 45%; height: 29px;">
+                                    <p><span style="background-color: #f8cac6;">[Add assignment 1
+                                            here]</span><br /><span style="background-color: #f8cac6;">[Add assignment 2
+                                            here]</span></p>
+                                </td>
+                            </tr>
+                            <tr style="height: 29px;">
+                                <td style="width: 5%; text-align: center; height: 29px;">15</td>
+                                <td style="width: 35%; height: 29px;"><span style="background-color: #f8cac6;">[Add
+                                        topic here]</span></td>
+                                <td style="width: 15%; text-align: center; height: 29px;"><span
+                                        style="background-color: #f8cac6;">??/?? - ??/??</span></td>
+                                <td style="width: 45%; height: 29px;">
+                                    <p><span style="background-color: #f8cac6;">[Add assignment 1
+                                            here]</span><br /><span style="background-color: #f8cac6;">[Add assignment 2
+                                            here]</span></p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p style="text-align: right;">&nbsp;</p>
+                    <p style="text-align: right;"><a href="#top">Back to top</a></p>
+                </div>
+            </div>
+            <div id="GradesAssignments" class="tabcontent">
+           
+                <hr style="border-top: 3px double #373737; margin: 10px 0;" />
+                <h3 id="grading">Grades&nbsp;&amp; Assignments</h3>
+                <p style="text-align: center;"><span
+                        style="background-color: #152456; display: block; color: white;">Grading</span></p>
+                <table style="border-collapse: collapse; width: 100%; height: 60px;" border="0" width="100%"
+                    cellpadding="0">
+                    <caption style="margin-bottom: 10px; text-align: left;"><strong> <span
+                                style="background-color: none; display: block;">Scale</span> </strong></caption>
+                    <tbody>
+                        <tr style="height: 26px;">
+                            <th style="text-align: left; height: 26px;"><strong>A Range</strong></th>
+                            <th style="text-align: left; height: 26px;"><strong>B Range</strong></th>
+                            <th style="text-align: left; height: 26px;"><strong>C Range</strong></th>
+                            <th style="text-align: left; height: 26px;"><strong>D Range</strong></th>
+                            <th style="text-align: left; height: 26px;"><strong>F Range</strong></th>
+                        </tr>
+                        <tr style="height: 10px;">
+                            <td style="height: 10px;">A+ 98 -100</td>
+                            <td style="height: 10px;">B+ 87 - 89</td>
+                            <td style="height: 10px;">C+ 77 - 79</td>
+                            <td style="height: 10px;">D+ 67 - 69</td>
+                            <td style="height: 10px;">F 0 - 59</td>
+                        </tr>
+                        <tr style="height: 10px;">
+                            <td style="text-align: left; height: 10px;">A&nbsp; &nbsp;93 - 97</td>
+                            <td style="text-align: left; height: 10px;">B&nbsp; &nbsp;83 - 86</td>
+                            <td style="text-align: left; height: 10px;">C&nbsp; &nbsp;73 - 76</td>
+                            <td style="text-align: left; height: 10px;">D&nbsp; &nbsp;63 - 66</td>
+                            <td style="text-align: left; height: 10px;"></td>
+                        </tr>
+                        <tr style="height: 14px;">
+                            <td style="text-align: left; height: 14px;">A- 90 - 92</td>
+                            <td style="text-align: left; height: 14px;">B-&nbsp; 80 - 82</td>
+                            <td style="text-align: left; height: 14px;">C- 70 - 72</td>
+                            <td style="text-align: left; height: 14px;">D-&nbsp; 60 - 62</td>
+                            <td style="height: 14px;"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>&nbsp;</p>
+                <p><strong>Weighting Details</strong></p>
+                <ul>
+                    <li><span style="background-color: #f8cac6;">[Assessed element 1: 20%]</span></li>
+                    <li><span style="background-color: #f8cac6;">[Assessed element 2: 20%]</span></li>
+                    <li><span style="background-color: #f8cac6;">[Assessed element 3: 20%]</span></li>
+                    <li><span style="background-color: #f8cac6;">[Assessed element 4: 20%]</span></li>
+                    <li><span style="background-color: #f8cac6;">[Assessed element 5: 20%]</span></li>
+                </ul>
+                <p><strong>Overview of Assignments</strong></p>
+                <ul>
+                    <li><span style="background-color: #f8cac6;">[Assessed element 1: Insert description, date, and
+                            scoring criteria here]</span></li>
+                    <li><span style="background-color: #f8cac6;">[Assessed element 2: Insert description, date, and
+                            scoring criteria here]</span></li>
+                    <li><span style="background-color: #f8cac6;">[Assessed element 3: Insert description, date, and
+                            scoring criteria here]</span></li>
+                    <li><span style="background-color: #f8cac6;">[Assessed element 4: Insert description, date, and
+                            scoring criteria here]</span></li>
+                    <li><span style="background-color: #f8cac6;">[Assessed element 5: Insert description, date, and
+                            scoring criteria here]</span></li>
+                </ul>
+                <p><strong>Rubrics and Grading Procedures</strong></p>
+                <p>Rubrics are utilized throughout the semester for most assignments. Rubrics will be able to be
+                    accessed from any assignment that will be scored with one.&nbsp;</p>
+                <p><span style="background-color: #f8cac6;">[Include any additional grading details or procedures
+                        here.]</span></p>
+                <p style="text-align: right;"><a href="#top">Back to top</a></p>
+            </div>
+            <div id="PoliciesServices" class="tabcontent">
+                <hr style="border-top: 3px double #373737; margin: 20px 0;" />
+                <h3 id="policies">Policies &amp; Services</h3>
+                <p style="text-align: center;"><span
+                        style="background-color: #152456; display: block; color: white;">General Policies</span></p>
+                <p>This course will abide by all Jefferson College of Nursing and Thomas Jefferson University policies.
+                    Students are responsible for knowing and adhering to academic polices as outlined in the <a
+                        class="inline_disabled" href="https://jefferson.edu/academicpolicies" target="_blank"
+                        rel="noopener">Academic Policies Handbook</a> and the <a class="inline_disabled"
+                        href="https://rebrand.ly/jcnstudenthandbook" target="_blank" rel="noopener">Jefferson College of
+                        Nursing Student Handbook &amp; Course Catalog</a>.</p>
+                <p style="text-align: center;"><span
+                        style="background-color: #152456; display: block; color: white;">Course Minimum Grade</span></p>
+                <p>A minimum grade of C+ (77) is required in order to progress in the curriculum. Per program policy,
+                    only final grades will be rounded to the nearest whole number. Exam and quiz scores will not be
+                    rounded and will be entered in grade book in Canvas to the nearest hundredth of a percent.</p>
+                <p>For more information, please see the Academic Progression policy in the <em>Jefferson College of
+                        Nursing Student Handbook &amp; Course Catalog</em>.</p>
+                <p style="text-align: center;"><span
+                        style="background-color: #152456; display: block; color: white;">Late and Make-up Work</span>
+                </p>
+                <p>For the Jefferson College of Nursing policy on late and make-up work, please see the Guidelines for
+                    Written Course Assignments section of the <em>Jefferson College of Nursing Student Handbook &amp;
+                        Course Catalog</em>.&nbsp;</p>
+                <p style="text-align: center;"><span
+                        style="background-color: #152456; display: block; color: white;">Attendance</span></p>
+                <p>Attendance is expected in all classes for which a student is registered. Faculty, in conjunction with
+                    the academic program/department, determines attendance requirements for each course. Please see the
+                    <a class="inline_disabled"
+                        href="https://www.jefferson.edu/life-at-jefferson/handbooks/policies/undergraduate-policies/attendance.html"
+                        target="_blank" rel="noopener">Thomas Jefferson University Attendance policy</a> and the
+                    <em>Jefferson College of Nursing Student Handbook &amp; Course Catalog</em> for information
+                    regarding class, laboratory, and clinical practice attendance.</p>
+                <p>Students who have any symptoms that are associated with infectious diseases (e.g., cold, flu or viral
+                    infection) should not attend in-person classes, clinical experiences or other activities that put
+                    them in close contact with other students, faculty, staff or patients. These symptoms can include
+                    but are not limited to sneezing, coughing, fever, gastrointestinal pain, and diarrhea. Students with
+                    these types of symptoms should contact Student Health Services (East Falls campus) or Jefferson
+                    Occupational Health Network (JOHN) (Center City campus) if these symptoms are present, before
+                    participating in any classroom, clinical, lab, or studio sessions, or any activities in which other
+                    students, faculty, staff or patients are present. Students who have these symptoms are responsible
+                    for notifying their faculty, program or college using the usual mechanisms before missing any
+                    scheduled course/clinical education activity, for staying current with course/clinical requirements,
+                    and for complying with any other course/clinical attendance policies. Students may be asked to
+                    provide documentation that they are under the care of a healthcare provider (without disclosure of
+                    any health condition).</p>
+                <p style="text-align: center;"><span
+                        style="background-color: #152456; display: block; color: white;">Incomplete</span></p>
+                <p>Please refer to the Failure to Complete a Course and the Grading System policies in the <em>Jefferson
+                        College of Nursing Student Handbook &amp; Course Catalog</em>.</p>
+                <p style="text-align: center;"><span
+                        style="background-color: #152456; display: block; color: white;">Withdrawal from the
+                        Course</span></p>
+                <p>Please see the Course Withdrawal policy in the <em>Jefferson College of Nursing Student Handbook
+                        &amp; Course Catalog</em>.<br />For withdrawal deadlines, please refer to the appropriate <a
+                        class="inline_disabled"
+                        href="https://www.jefferson.edu/university/academic-affairs/tju/academic-services/registrar/calendars/academic-calendars.html"
+                        target="_blank" rel="noopener">Academic Calendar</a>.</p>
+                <p style="text-align: center;"><span
+                        style="background-color: #152456; display: block; color: white;">Statement on Academic Rights
+                        &amp; Responsibilities</span></p>
+                <p>The Academic Responsibility Contract in the Jefferson College of Nursing Student Handbook &amp;
+                    Course Catalog contains information about Jefferson College of Nursing students&rsquo; academic
+                    rights and responsibilities.&nbsp;</p>
+                <p>For more information about students&rsquo; rights and responsibilities, please refer to the <a
+                        class="inline_disabled"
+                        href="https://www.jefferson.edu/life-at-jefferson/handbooks/rights-responsibilities.html"
+                        target="_blank" rel="noopener">Thomas Jefferson University Rights and Responsibilities
+                        page</a>.&nbsp;</p>
+                <p style="text-align: center;"><span
+                        style="background-color: #152456; display: block; color: white;">Academic Integrity</span></p>
+                <p>Academic Integrity is the foundation of the Jefferson teaching, learning, and professional community
+                    and promotes a culture of fairness, trust and respect.</p>
+                <p>Please see the Academic Integrity policy in the <em>Jefferson College of Nursing Student Handbook
+                        &amp; Course Catalog</em>.&nbsp;</p>
+                <p>For more information, the <a class="inline_disabled"
+                        href="https://www.jefferson.edu/life-at-jefferson/handbooks/policies/undergraduate-policies/academic-integrity.html"
+                        target="_blank" rel="noopener">Thomas Jefferson University Academic Integrity policy</a> defines
+                    relevant terms and describes the procedures for responding to charges of policy violations.</p>
+                <p style="text-align: center;"><span
+                        style="background-color: #152456; display: block; color: white;">Netiquette</span></p>
+                <p>Faculty and fellow students wish to foster a safe online learning environment consistent with Thomas
+                    Jefferson University&rsquo;s <a class="inline_disabled"
+                        href="https://www.jefferson.edu/life-at-jefferson/handbooks/rights-responsibilities/community-standards.html"
+                        target="_blank" rel="noopener">Community Standards</a>. In keeping with Thomas Jefferson
+                    University&rsquo;s <a class="inline_disabled"
+                        href="https://www.jefferson.edu/university/diversity/our-commitement.html" target="_blank"
+                        rel="noopener">Commitment to Diversity</a>, all opinions and experiences, no matter how
+                    different or controversial they may be perceived, must be respected in the tolerant spirit of
+                    academic discourse. Students are encouraged to comment, question, or critique an idea but are not to
+                    attack an individual.</p>
+                <p>Our differences will add richness to this learning experience. Please consider that sarcasm and humor
+                    can be misconstrued in online interactions and generate unintended disruptions. Working as a
+                    community of learners, we can build a polite and respectful course atmosphere.</p>
+                <p style="text-align: center;"><span
+                        style="background-color: #152456; display: block; color: white;">Diversity &amp;
+                        Inclusion</span></p>
+                <p>Thomas Jefferson University is committed to building and expanding a diverse educational community
+                    founded on mutual respect and appreciation for each other. &nbsp;We aspire to create a diverse and
+                    inclusive environment, knowing that the creative energy and innovative insights that result from
+                    diversity are vital for our intellectual rigor and social fabric.</p>
+                <p><a class="inline_disabled" href="https://www.jefferson.edu/university/diversity/contact.html"
+                        target="_blank" rel="noopener">Office of Diversity &amp; Inclusion Initiatives</a><br />1025
+                    Walnut Street<br />College Building, Room 119<br />Philadelphia, PA 19107<br />Phone: (215) 503-4795
+                    &nbsp;<br />Fax: (215) 503-4095<br />Email: <a class="inline_disabled"
+                        href="mailto:Diversity@jefferson.edu" target="_blank" rel="noopener">Diversity@jefferson.edu</a>
+                </p>
+                <p style="text-align: center;"><span
+                        style="background-color: #152456; display: block; color: white;">Religious Observance
+                        Policy</span></p>
+                <p>The University understands that some students may wish to observe religious holidays that fall on
+                    scheduled class days. Please see the University&rsquo;s <a class="inline_disabled"
+                        href="https://www.jefferson.edu/life-at-jefferson/handbooks/policies/undergraduate-policies/student-religious-observance-policy.html"
+                        target="_blank" rel="noopener">Student Religious Observance Policy</a> for the policy statement
+                    and scope.</p>
+                <p><a class="inline_disabled" href="mailto:Diversity@jefferson.edu" target="_blank" rel="noopener"></a>
+                </p>
+                <p style="text-align: center;"><span
+                        style="background-color: #152456; display: block; color: white;">Student Academic Support</span>
+                </p>
+                <p>Student academic support sessions are facilitated by Jefferson College of Nursing faculty members,
+                    available on an individual basis or as a group, and open to all students wishing to seek additional
+                    academic support at any point during the course of study. The student academic support sessions are
+                    in addition to academic advising.</p>
+                <p style="text-align: center;"><span
+                        style="background-color: #152456; display: block; color: white;">Disability Disclosure Statement
+                        &amp; Accessibility Services</span></p>
+                <p>Thomas Jefferson University is committed to collaborating with community members to provide access to
+                    all educational opportunities, programs, and services.</p>
+                <p>A student requesting accommodation for a disability must contact the Associate Provost of Student
+                    Affairs (215-503-6335, 901 Walnut Building, 11th floor, room 1118) and submit documentation of that
+                    disability. See the University policy on <a class="inline_disabled"
+                        href="https://www.jefferson.edu/life-at-jefferson/handbooks/rights-responsibilities/disability-accommodations.html"
+                        target="_blank" rel="noopener">Disability Accommodations</a> and <a class="inline_disabled"
+                        href="https://www.jefferson.edu/life-at-jefferson/handbooks/policies/undergraduate-policies/accessibility-services.html"
+                        target="_blank" rel="noopener">Accessibility Services</a> for further information.&nbsp;</p>
+                <p>Center City and Dixon: Jennifer Fogerty, Assistant Provost for Student Affairs, <a
+                        class="inline_disabled" href="mailto:Jennifer.fogerty@jefferson.edu" target="_blank"
+                        rel="noopener">Jennifer.fogerty@jefferson.edu</a><br />East Falls (if applicable): Zoe Gingold,
+                    Director of Disability Services, <a class="inline_disabled"
+                        href="mailto:ZoeAnn.Gingold@jefferson.edu" target="_blank"
+                        rel="noopener">ZoeAnn.Gingold@jefferson.edu</a></p>
+                <p id="techsup" style="text-align: center;"><span
+                        style="background-color: #152456; display: block; color: white;">Information Technology
+                        (IS&amp;T) Information</span></p>
+                <p>Please see <a class="inline_disabled"
+                        href="https://www.jefferson.edu/university/jefferson/email_calendaring/faqs/documentation.html"
+                        target="_blank" rel="noopener">Thomas Jefferson University&rsquo;s User Guides</a> for
+                    frequently asked questions related to student email, calendars, and mobile devices. For those that
+                    require live IT assistance, call 215-955-7975 to talk to a member of the IS&amp;T Service Desk or
+                    visit the IS&amp;T Desk in the Scott Memorial Library, 2nd floor, located at 1020 Walnut Street.</p>
+                <p style="text-align: center;"><span
+                        style="background-color: #152456; display: block; color: white;">Counseling Services</span></p>
+                <p>Students may experience a range of issues that can cause barriers to learning, such as strained
+                    relationships, increased anxiety, substance use, feeling down, difficulty concentrating and/or lack
+                    of motivation. These concerns or stressful events may lead to diminished academic performance and
+                    ability to participate in daily activities. Counseling services are available to assist students.
+                    Please contact the <a class="inline_disabled"
+                        href="https://www.jefferson.edu/university/academic-affairs/counseling-center.html"
+                        target="_blank" rel="noopener">Counseling Center</a> to learn more about <a
+                        class="inline_disabled"
+                        href="https://www.jefferson.edu/university/academic-affairs/counseling-center/services/overview.html"
+                        target="_blank" rel="noopener">Counseling Center Services</a> and <a class="inline_disabled"
+                        href="https://www.jefferson.edu/university/academic-affairs/counseling-center/crisis-resources/resources.html"
+                        target="_blank" rel="noopener">Crisis Resources</a>.</p>
+                <p style="text-align: center;"><span
+                        style="background-color: #152456; display: block; color: white;">Title IX and Sexual
+                        Misconduct</span></p>
+                <p>Thomas Jefferson University and the Jefferson College of Nursing are committed to fostering an
+                    environment free of discrimination including sexual harassment and sexual violence. Please see the
+                    <a class="inline_disabled"
+                        href="https://www.jefferson.edu/content/dam/tju/Academic_Affairs/files/Student%20Affairs/handbooks/sex-and-gender-based-misconduct-policy-2020-21.pdf"
+                        target="_blank" rel="noopener">Sex and Gender-Based Misconduct Policy</a> for more
+                    information.&nbsp;</p>
+                <p style="text-align: center;"><span
+                        style="background-color: #152456; display: block; color: white;">Continuity of Instruction in
+                        Event of Emergency</span></p>
+                <p>It's the policy of Thomas Jefferson University not to cancel classes. However, if on-campus sessions
+                    are not possible, students will receive a JeffALERT or can check the University website confirming
+                    on campus sessions have been cancelled.<br />For more information about continuity of instruction in
+                    the event of an emergency, please reference the <a class="inline_disabled"
+                        href="https://www.jefferson.edu/life-at-jefferson/handbooks/policies/undergraduate-policies/inclement-weather.html"
+                        target="_blank" rel="noopener">Thomas Jefferson University Inclement Weather policy</a> and the
+                    Continuity of Instruction in Event of Emergency policy in the <em>Jefferson College of Nursing
+                        Student Handbook &amp; Course Catalog</em>.</p>
+                <p style="text-align: center;"><span
+                        style="background-color: #152456; display: block; color: white;">COVID-19 Syllabus
+                        Addendum</span></p>
+                <p>Jefferson and its educational leaders recognize the importance of regular class attendance and the
+                    benefits to student learning. Faculty determine the most appropriate attendance policies to support
+                    learning outcomes in their class and state these policies on their course syllabus. Some Accrediting
+                    Agencies determine and set minimum standards for attendance in clinical settings. Students recognize
+                    the importance of attendance and make every effort to be present for classes and participate
+                    fully.&nbsp;</p>
+                <p>In response to the COVID-19 pandemic and in accordance with guidance from the CDC, the Commonwealth
+                    of Pennsylvania&rsquo;s Department of Education, and the City of Philadelphia&rsquo;s Department of
+                    Public Health, Jefferson is adopting a more flexible approach to student absenteeism for the
+                    2020-2021 academic year. In order to protect the health and safety of our community while ensuring
+                    continuity of learning, in-person classes shall adhere to the following directives:</p>
+                <ul>
+                    <li>Students who are symptomatic (e.g., fever, cough, shortness of breath, loss of taste or smell),
+                        who believe they have had recent possible exposure to COVID-19, or who have a confirmed
+                        diagnosis of COVID-19 should not come to class in person. Those students should contact Student
+                        Health in East Falls or the Jefferson Occupational Health Network (JOHN) in Center City for
+                        guidance on steps to take.</li>
+                    <li>Accommodations should be made (e.g., extended due dates, electronic submission of assignments),
+                        when possible, for individuals who may be temporarily unable to attend class due to possible
+                        exposure or illness from COVID-19. Students should make every attempt to stay current on their
+                        work during this time. Faculty will allow students to attend classes remotely in these instances
+                        whenever possible.&nbsp;<br />If a student is unable to attend class, they should engage in
+                        active and regular communication with faculty. This includes informing faculty in advance of
+                        class about the need to be absent and ensuring regular ongoing communication should absences
+                        continue.</li>
+                    <li>Faculty and students should follow the process established by Student Health and Jefferson
+                        Occupational Health Network regarding potential exposure or illness from COVID-19 for both
+                        classroom and clinical attendance.</li>
+                    <li>Faculty will be flexible about in-person attendance to the greatest extent possible in order to
+                        maximize adherence to Jefferson health and safety guidelines. To that end, faculty will utilize
+                        Canvas and other technologies to the greatest extent practicable to post course materials and
+                        other relevant information, to enable students who may be required to be absent to continue with
+                        coursework. Faculty and students should be aware that a certain level of absenteeism will
+                        disrupt continuity of teaching, learning, and research and should consult other policies, such
+                        as Medical Leave of Absence or Incompletes as needed.</li>
+                    <li>Faculty and students should practice social distancing, mask wearing, and hand hygiene as
+                        directed in the guidelines.&nbsp;</li>
+                </ul>
+                <p>Students and faculty should consult their Chair or Program Director as needed for guidance on
+                    attendance considerations relative to grading. If necessary, the Dean of Students or Office of
+                    Student Affairs can assist.</p>
+                <p style="text-align: right;"><a href="#top">Back to top</a></p>
+                <p><em>Last revised 9/22/2021</em></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+
+</body>
+
+</html>

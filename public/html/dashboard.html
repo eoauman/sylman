@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="../css/dashboardStyle.css"> <!-- Link your CSS file -->
+</head>
+<body>
+    <h1>User Dashboard</h1>
+
+    <!-- Loading Indicator -->
+    <div id="loading" class="loading">Loading syllabi, please wait...</div>
+    
+    <!-- Error Message Container -->
+    <div id="errorMessage"></div>
+
+    <table id="syllabusTable">
+        <thead>
+            <tr>
+                <th>Course Title</th>
+                <th>Submission Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Syllabi data will be populated here -->
+        </tbody>
+    </table>
+
+    <button id="newSyllabusButton">Create New Syllabus</button>
+
+    <script src="../js/dashboardScript.js"></script> <!-- Link to your JavaScript file -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loading = document.getElementById('loading');
+            const errorMessage = document.getElementById('errorMessage');
+    
+            // Show the loading indicator when fetching begins
+            loading.style.display = 'block';
+    
+            // Fetch syllabi and handle loading/error messages
+            fetchSyllabi()
+                .then(() => {
+                    loading.style.display = 'none'; // Hide loading indicator on success
+                })
+                .catch((err) => {
+                    loading.style.display = 'none'; // Hide loading indicator on error
+                    errorMessage.textContent = 'An error occurred while fetching your syllabi. Please try again later.';
+                    console.error('Error during syllabi fetch:', err);
+                });
+        });
+    </script>    
+</body>
+</html>

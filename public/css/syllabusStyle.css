@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#jcn_syllabus {
+    margin: 20px;
+}
+
+#jcn_syllabus img {
+    float: right;
+}
+
+#jcn_syllabus p a.instructure_file_link {
+    display: block;
+}
+
+#jcn_syllabus p.center-text {
+    text-align: center;
+}
+
+#jcn_syllabus p.strong-bg {
+    background-color: #152456;
+    color: white;
+    display: block;
+    text-align: center;
+    font-weight: bold;
+}
+
+#jcn_syllabus p {
+    margin: 10px 0;
+}
+
+#jcn_syllabus .double-border {
+    border-top: 3px double #373737;
+    margin: 20px 0;
+}
+
+#jcn_syllabus table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#jcn_syllabus table,
+#jcn_syllabus th,
+#jcn_syllabus td {
+    border: 1px solid #000;
+}
+
+#jcn_syllabus th,
+#jcn_syllabus td {
+    text-align: center;
+    padding: 10px;
+}
+
+#jcn_syllabus th {
+    background-color: #dfe1df;
+    color: #000;
+}
+
+#jcn_syllabus td span,
+#jcn_syllabus td p {
+    text-align: left;
+}
+
+#jcn_syllabus table caption {
+    margin-bottom: 10px;
+    background-color: #152456;
+    color: white;
+    display: block;
+    text-align: center;
+    font-weight: bold;
+}
+
+#jcn_syllabus a {
+    color: #152456;
+}
+
+#jcn_syllabus ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#jcn_syllabus li {
+    margin: 5px 0;
+}

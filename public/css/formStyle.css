@@ -1,0 +1,542 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+form {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-control {
+    font-family: inherit;
+}
+
+.form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
+}
+
+.nav-tabs {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border-bottom: 2px solid #ddd;
+}
+
+.nav-item {
+    margin-right: 5px;
+}
+
+.nav-link {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+    color: #333;
+    cursor: pointer;
+}
+
+.nav-link.active {
+    background-color: rgb(24, 176, 227);
+    border-bottom: 2px solid white;
+    font-weight: bold;
+    color: #333;
+}
+
+.nav-link:hover {
+    background-color: lightblue;
+}
+
+
+input[type="text"] {
+    width: calc(100% - 20px);
+    /* Adjust width to account for padding */
+    padding: 10px;
+    margin: 5px 0 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow-wrap: anywhere;
+}
+
+input[type="number"] {
+    width: auto;
+    /* Adjust width to account for padding */
+    padding: 10px;
+    margin: 0px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow-wrap: anywhere;
+}
+
+input[type="email"] {
+    width: calc(100% - 20px);
+    /* Adjust width to account for padding */
+    padding: 10px;
+    margin: 5px 0 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+input[type="tel"] {
+    width: calc(100% - 20px);
+    /* Adjust width to account for padding */
+    padding: 10px;
+    margin: 5px 0 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+
+textarea {
+    width: calc(100% - 20px);
+    /* Adjust width to account for padding */
+    padding: 10px;
+    margin: 5px 0 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+}
+
+/* Style for the date picker */
+#datePicker {
+    font-size: 16px;
+    /* Increase font size */
+    padding: 8px 10px;
+    /* Adjust padding for bigger size */
+    border: 1px solid #ccc;
+    /* Optional border */
+    border-radius: 4px;
+    /* Optional rounded corners */
+}
+
+/* Style for the dropdown */
+#moduleSelect {
+    font-size: 16px;
+    /* Increase font size */
+    padding: 8px 10px;
+    /* Adjust padding for bigger size */
+    border: 1px solid #ccc;
+    /* Optional border */
+    border-radius: 4px;
+    /* Optional rounded corners */
+}
+
+#addInstructors {
+    font-size: 16px;
+    /* Increase font size */
+    padding: 8px 10px;
+    /* Adjust padding for bigger size */
+    border: 1px solid #ccc;
+    /* Optional border */
+    border-radius: 4px;
+    /* Optional rounded corners */
+}
+
+.instructor-block-gray {
+    background-color: #f0f0f0;
+    /* Light gray background */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+}
+
+.instructor-block-white {
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+}
+
+.assessed-element-gray {
+    background-color: #f0f0f0; /* Light gray background */
+}
+
+.assessed-element-white {
+    background-color: #ffffff; /* White background */
+}
+
+.assignment-block {
+    padding: 10px; /* Padding inside each assignment block */
+    border: 1px solid #ddd;
+}
+
+.assignment-block input,
+.assignment-block textarea {
+    margin: 10px; /* Margin around inputs and textareas */
+    width: calc(100% - 20px); /* Adjust width to account for padding and margin */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* Style for the labels */
+label {
+    font-size: 16px;
+    /* Increase label font size */
+}
+
+/* Styles for inputs within table cells */
+
+table input[type="text"] {
+    width: calc(100% - 20px);
+    /* Adjust width to account for padding */
+    margin: 0;
+    /* Remove margin within table cells */
+}
+
+.assessment-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.slo-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.assessment-input-wrapper,
+.outcome-input-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.input-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Aligns items vertically in the center */
+}
+
+/* Style for the input fields */
+.input-wrapper input {
+    /* Adjust padding, borders, and height as needed */
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.add-assignment-button {
+    /* Your styles here */
+    margin-top: 5px;
+    background: yellow;
+    color: black;
+    padding: 10px;
+    /* Other styling properties */
+}
+
+/* Style for the 'Remove Assignment' button */
+.remove-assignment-button {
+    padding: 5px 10px;
+    /* Adjust padding to match the height of the input */
+    border: 1px solid #ccc;
+    margin: 0 0 0 5px;
+    /* Add some space to the left of the button */
+    /* Other styling properties */
+    cursor: pointer;
+    background-color: #f44336;
+    /* Example background color */
+    color: white;
+}
+
+
+/* Style for the assignment container */
+.assignment-wrapper {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* justify-content: space-between; */
+    margin-bottom: 10px;
+}
+
+.assessment-cell input {
+    flex-grow: 1;
+    margin-bottom: 5px;
+}
+
+.slo-cell input {
+    flex-grow: 1;
+    margin-bottom: 5px;
+}
+
+.addAssessmentButton {
+    margin-top: 5px;
+    background: yellow;
+    color: black;
+}
+
+#addElementButton {
+    /* Your styles here */
+    margin-top: 5px;
+    background: yellow;
+    color: black;
+    padding: 10px;
+    /* Other styling properties */
+}
+
+.addOutcomeButton {
+    margin-top: 5px;
+    background: yellow;
+    color: black;
+}
+
+.addAssignmentButton {
+    margin-top: 5px;
+    background: yellow;
+    color: black;
+}
+
+#addAssessedElementButton {
+    margin-top: 5px;
+    background: yellow;
+    color: black;
+}
+
+.removeAssessmentButton {
+    margin: 0 0 0 5px;
+    /* Add some space to the left of the button */
+    background: #dc3545;
+    color: white;
+}
+
+.removeOutcomeButton {
+    margin: 0 0 0 5px;
+    /* Add some space to the left of the button */
+    background: #dc3545;
+    color: white;
+}
+
+.module-block {
+    /* common styles for all modules */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+}
+
+.module-block-gray {
+    background-color: #f0f0f0;
+    /* Gray background */
+}
+
+.module-block-white {
+    background-color: #ffffff;
+    /* White background */
+}
+
+/* Ensure the learning outcome cell aligns items to the start (top) */
+td {
+    vertical-align: top;
+    /* Align content to the top of the table cell */
+}
+
+button {
+    padding: 10px 20px;
+    background: blue;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+h1,
+h2 {
+    color: #333;
+    margin-bottom: 5px;
+}
+
+#addOutcomeButton {
+    background: #28a745;
+    /* A green color */
+}
+
+#progStudentOutcomesTable {
+    width: 100%;
+}
+
+#progStudentOutcomesTable colgroup col {
+    width: 50%;
+}
+
+#courseScheduleTable {
+    width: 100%;
+}
+
+#courseScheduleTable colgroup col:nth-child(1) {
+    width: 10%;
+}
+
+#courseScheduleTable colgroup col:nth-child(2) {
+    width: 40%;
+}
+
+#courseScheduleTable colgroup col:nth-child(3) {
+    width: 10%;
+}
+
+#courseScheduleTable colgroup col:nth-child(4) {
+    width: 40%;
+}
+
+#weightingDetailsTable {
+    width: 100%;
+}
+
+#weightingDetailsTable colgroup col:nth-child(1) {
+    width: 85%;
+}
+
+#weightingDetailsTable colgroup col:nth-child(2) {
+    width: 15%;
+}
+#weightingDetailsTable tbody tr {
+    display: table-row; /* Ensure rows are displayed as normal table rows */
+}
+
+/* Style for the assessment description editor container */
+.assessment-description-editor {
+    height: 100px; /* Ensure the editor has a height */
+    border: 1px solid #ddd; /* Optional: add border to match input styles */
+    border-radius: 4px; /* Optional: rounded corners */
+    padding: 10px; /* Add padding inside the editor */
+    background-color: #ffffff; /* Ensure the background color is white */
+    margin-bottom: 10px; /* Add space below each editor */
+}
+
+/* Style for the assignment entry block to ensure visibility */
+.assignment-entry {
+    margin-bottom: 20px; /* Add space between each assessment entry */
+    padding: 10px; /* Add padding for better visibility */
+    border: 1px solid #ddd; /* Optional: add a border to separate each assessment entry */
+    background-color: #f9f9f9; /* Light gray background for contrast */
+    border-radius: 4px; /* Rounded corners */
+}
+
+/* Style for hidden textareas used for syncing with Quill */
+textarea.assessment-description {
+    display: none; /* Keep hidden, as it's just for syncing purposes */
+    visibility: hidden; /* Make sure it's fully hidden */
+}
+
+.grading-block {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.grading-block-gray {
+    background-color: #f0f0f0;
+}
+
+.grading-block-white {
+    background-color: #ffffff;
+}
+
+.grading-block input[type="text"], 
+.grading-block textarea, 
+.grading-block input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.grading-block textarea {
+    resize: vertical; /* Allows the textarea to be resized vertically */
+    height: 100px; /* Initial height */
+}
+
+#addGradingElementButton {
+    padding: 10px 20px;
+    background-color: yellow; /* Green background */
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#addGradingElementButton:hover {
+    background-color: rgb(244, 244, 1); /* Darker green on hover */
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+#addRowButton {
+    background: #28a745;
+    /* Green color */
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 0;
+}
+
+.deleteRowButton {
+    background: #dc3545;
+    /* Red color */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    /* Make the button a block element */
+    margin-top: 5px;
+    /* Space above the button */
+}
+
+/* Style for the program selection dropdown */
+.form-group {
+   margin-top: 10px;
+}
+
+#programSelect {
+    font-size: 16px;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 10px 0 20px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.spacing {
+    margin-bottom: 10px;
+    /* Adjust the value as needed */
+}

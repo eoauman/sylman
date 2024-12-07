@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reset Password</title>
+    <link rel="stylesheet" href="../css/resetpassword.css">
+</head>
+<body>
+    <form id="resetPasswordForm">
+        <input type="password" id="newPassword" placeholder="New Password" required>
+        <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+        <input type="hidden" id="resetToken">
+        <button type="submit">Reset Password</button>
+        <div id="message"></div>
+    </form>
+    <script src="../js/resetPasswordScript.js"></script>
+</body>
+</html>

@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Course Syllabus 1</title>
+    <!-- Link to external stylesheet for custom form styles -->
+    <link rel="stylesheet" href="../css/formStyle.css">
+    
+    <!-- Google Fonts preconnection for performance optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Include Roboto font for consistent typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    
+    <!-- Include Quill CSS for rich-text editor styling -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+</head>
+
+<body>
+    <form id="syllabusForm">
+        <h1>Course Syllabus</h1>
+        <div id="autosave-status" style="color: grey; font-size: 12px; margin-bottom: 10px;"></div>
+        <div class="form-navigation">
+            <ul class="nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#" data-step="1">Course & Instructor Information</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-step="2">Course Content</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-step="3">Grades & Assignments</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-step="4">Policies & Services</a>
+                </li>
+            </ul>
+        </div>
+<!-- Step 1: Course Information -->
+<div class="form-step active" id="step1">
+    <div class="section">
+        <!-- Program Selection Dropdown -->
+        <div class="form-group">
+            <label for="programSelect">Select Program:</label>
+            <select id="programSelect" name="programSelect" required>
+                <option value="" disabled selected>Select your program</option>
+                <option value="BSN">BSN</option>
+                <option value="MSN">MSN</option>
+                <option value="DNP">DNP</option>
+            </select>
+        </div>
+        <!-- Functionality -->
+        <!-- Purpose: Sets program-related default values (policies, placeholders, etc.). -->
+        <!-- JS: `handleProgramChange` (eventInit.js) updates the UI based on the selected program. -->
+        <!-- JS: `saveProgramSelection` (formUtils.js) saves the selected program to the database. -->
+        <!-- Routes: Data saved via `POST /syllabus/updateProgram` (syllabusRoutes.js). -->
+
+        <h2>Course Information</h2>
+        <div class="form-group">
+            <label for="courseTitle">Course Title:</label>
+            <input type="text" id="courseTitle" name="courseTitle" placeholder="Full Course Title from JCN Student Handbook & Course Catalog" required>
+        </div>
+        <!-- Functionality -->
+        <!-- Purpose: Stores the course title for syllabus metadata. -->
+        <!-- JS: Data collected via `collectFormData` (formUtils.js). -->
+        <!-- Routes: Saved via `POST /syllabus/saveTitle` (syllabusRoutes.js). -->
+
+        <div class="form-group">
+            <label for="courseNumber">Course Number:</label>
+            <input type="text" id="courseNumber" name="courseNumber" placeholder="NU # with suffix" required>
+        </div>
+        <!-- Functionality -->
+        <!-- Purpose: Stores the course number for identification. -->
+        <!-- JS: Handled in `collectFormData` (formUtils.js). -->
+        <!-- Routes: Updates saved via `POST /syllabus/saveNumber` (syllabusRoutes.js). -->
+
+        <div class="form-group">
+            <label for="credits">Credits:</label>
+            <input type="text" id="credits" name="credits" placeholder="Total # (# didactic, # lab, # simulation, # clinical)" required>
+        </div>
+        <!-- Functionality -->
+        <!-- Purpose: Tracks credit allocation for the course. -->
+        <!-- JS: Processed through `collectFormData`. -->
+        <!-- Routes: Data saved to the database via `POST /syllabus/saveCredits`. -->
+
+        <div class="form-group">
+            <label for="placement">Placement:</label>
+            <input type="text" id="placement" name="placement" placeholder="Year #, Semester #" required>
+        </div>
+        <!-- Functionality -->
+        <!-- Purpose: Indicates where the course fits in the program's sequence. -->
+        <!-- JS: Handled via `collectFormData` and integrated with program policies. -->
+        <!-- Routes: Updated in the database via `POST /syllabus/savePlacement`. -->
+
+        <div class="form-group">
+            <label for="courseType">Course Type:</label>
+            <input type="text" id="courseType" name="courseType" placeholder="Lecture, studio, lab, seminar, or other" required>
+        </div>
+        <!-- Functionality -->
+        <!-- Purpose: Describes the type of course. Dynamically updated via program selection. -->
+        <!-- JS: Updated via `handleProgramChange`. -->
+        <!-- Routes: Saved via `POST /syllabus/saveCourseType`. -->
+
+        <div class="form-group">
+            <label for="courseDelivery">Course Delivery:</label>
+            <input type="text" id="courseDelivery" name="courseDelivery" placeholder="List all modes (synchronous, asynchronous online, online, hybrid, hiflex)" required>
+        </div>
+        <!-- Functionality -->
+        <!-- Purpose: Captures delivery methods for course communication. -->
+        <!-- JS: Included in `collectFormData`. -->
+        <!-- Routes: Stored via `POST /syllabus/saveDelivery`. -->
+    </div>
+    <hr>
+
+    <!-- Instructor Information -->
+    <div class="section">
+        <h2>Instructor Information</h2>
+        <div class="form-group">
+            <label for="courseLead">Course Lead:</label>
+            <input type="text" id="courseLead" name="courseLead" placeholder="Name, Credentials" required>
+        </div>
+        <!-- Functionality -->
+        <!-- Purpose: Stores information about the course lead. -->
+        <!-- JS: Handled via `collectFormData`. -->
+        <!-- Routes: Data sent via `POST /syllabus/saveInstructorLead`. -->
+
+        <div class="form-group">
+            <label for="leadEmail">Email:</label>
+            <input type="email" id="leadEmail" name="leadEmail" placeholder="name@jefferson.edu" required>
+        </div>
+        <!-- Functionality -->
+        <!-- Purpose: Stores the course lead's email for communication. -->
+        <!-- JS: Handled via `collectFormData`. -->
+        <!-- Routes: Stored in the database via `POST /syllabus/saveInstructorEmail`. -->
+
+        <div class="form-group">
+            <label for="leadPhone">Phone:</label>
+            <input type="tel" id="leadPhone" name="leadPhone" placeholder="###-###-####" required>
+        </div>
+        <!-- Functionality -->
+        <!-- Purpose: Stores the course lead's phone number. -->
+        <!-- JS: Included in `collectFormData`. -->
+        <!-- Routes: Updates saved via `POST /syllabus/saveInstructorPhone`. -->
+
+        <div class="form-group">
+            <label for="leadOffice">Office:</label>
+            <input type="text" id="leadOffice" name="leadOffice" placeholder="Building, Room Number" required>
+        </div>
+        <!-- Functionality -->
+        <!-- Purpose: Indicates the course lead's office location. -->
+        <!-- JS: Part of `collectFormData`. -->
+        <!-- Routes: Saved via `POST /syllabus/saveInstructorOffice`. -->
+
+        <div class="form-group">
+            <label for="leadOfficeHours">Office Hours:</label>
+            <div id="editor-leadOfficeHours" style="height: 100px;"></div>
+            <textarea id="leadOfficeHours" name="leadOfficeHours" style="display:none;" required></textarea>
+        </div>
+        <!-- Functionality -->
+        <!-- Purpose: Uses Quill editor to input and store office hours. -->
+        <!-- JS: Quill initialized via `initializeQuillEditor` (quillUtils.js). -->
+        <!-- JS: Data synced via `syncQuillEditors`. -->
+        <!-- Routes: Updates stored via `POST /syllabus/saveOfficeHours`. -->
+
+        <div class="form-group">
+            <label for="addInstructors">Additional Course Instructors:</label>
+            <select class="spacing" id="addInstructors" name="addInstructors"></select>
+        </div>
+        <!-- Functionality -->
+        <!-- Purpose: Dynamically adds multiple instructor fields. -->
+        <!-- JS: Handled via `initializeEventListeners` (eventInit.js). -->
+        <!-- Routes: Saved dynamically during form submission. -->
+        <div id="instructorsContainer" class="form-view"></div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <button type="button" class="nav-button" data-step="2">NEXT</button>
+    <!-- JS: Navigation handled by `showStep` (eventInit.js). -->
+</div>
+<!-- Step 2: Course Content -->
+<div class="form-step" id="step2" style="display: none;">
+    <div class="section">
+        <h2>Course Details</h2>
+        <div class="form-group">
+            <label for="courseReqs">Course Prerequisites or Co-Requisites:</label>
+            <input type="text" id="courseReqs" name="courseReqs" placeholder="Add prerequisites or co-requisites here" required>
+        </div>
+        <!-- Functionality -->
+        <!-- Purpose: Captures course prerequisites or co-requisites. -->
+        <!-- JS: Included in `collectFormData` (formUtils.js). -->
+        <!-- Routes: Saved to the database via `POST /syllabus/saveCourseReqs` (syllabusRoutes.js). -->
+
+        <div class="form-group">
+            <label for="courseDescription">Course Description:</label>
+            <div id="editor-courseDescription" style="height: 200px;"></div>
+            <textarea id="courseDescription" name="courseDescription" style="display:none;" required></textarea>
+        </div>
+        <!-- Functionality -->
+        <!-- Purpose: Uses Quill editor to allow rich-text course description input. -->
+        <!-- JS: Quill initialized via `initializeQuillEditor` (quillUtils.js). -->
+        <!-- JS: Synced to hidden textarea via `syncQuillEditors`. -->
+        <!-- Routes: Data stored via `POST /syllabus/saveCourseDescription` (syllabusRoutes.js). -->
+    </div>
+
+    <div class="section">
+        <h2>Program & Student Learning Outcomes</h2>
+        <table id="progStudentOutcomesTable">
+            <colgroup>
+                <col>
+                <col>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Program Outcomes</th>
+                    <th>Student Learning Outcomes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be dynamically populated via JavaScript -->
+            </tbody>
+        </table>
+    </div>
+    
+
+    <div class="section">
+        <h2>Learning Outcomes & Assessments</h2>
+        <table id="outcomesAssessmentTable">
+            <thead>
+                <tr>
+                    <th>Learning Outcome</th>
+                    <th>Corresponding Assessment</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dynamic rows populated by JavaScript -->
+            </tbody>
+        </table>
+        <!-- Functionality -->
+        <!-- Purpose: Displays the relationship between learning outcomes and assessments. -->
+        <!-- JS: Rows dynamically populated using `updateWeightingDetailsAndAssignments` (formUtils.js). -->
+        <!-- Routes: Data retrieved and saved dynamically during form submission. -->
+    </div>
+
+    <hr>
+    <div class="section">
+        <h2>Required Course Materials</h2>
+        <div id="editor-requiredMaterials" style="height: 200px;"></div>
+        <textarea id="requiredMaterials" name="requiredMaterials" style="display:none;" required></textarea>
+    </div>
+    <!-- Functionality -->
+    <!-- Purpose: Uses Quill editor to collect required course materials. -->
+    <!-- JS: Quill initialized via `initializeQuillEditor` (quillUtils.js). -->
+    <!-- JS: Synced to hidden textarea via `syncQuillEditors`. -->
+    <!-- Routes: Data stored via `POST /syllabus/saveRequiredMaterials`. -->
+
+    <hr>
+    <div class="section">
+        <h2>Instructional Methods</h2>
+        <div id="editor-instructionalMethods" style="height: 200px;"></div>
+        <textarea id="instructionalMethods" name="instructionalMethods" style="display:none;" required></textarea>
+    </div>
+    <!-- Functionality -->
+    <!-- Purpose: Uses Quill editor to specify instructional methods. -->
+    <!-- JS: Quill initialized via `initializeQuillEditor` (quillUtils.js). -->
+    <!-- JS: Synced to hidden textarea via `syncQuillEditors`. -->
+    <!-- Routes: Saved via `POST /syllabus/saveInstructionalMethods`. -->
+
+    <hr>
+    <div class="section">
+        <h2>Course Communications</h2>
+        <p>To facilitate communication, the university requires you to have an e-mail account ending in @jefferson.edu.</p>
+        <div id="editor-courseCommunications" style="height: 200px;"></div>
+        <textarea id="courseCommunications" name="courseCommunications" style="display:none;" required></textarea>
+    </div>
+    <!-- Functionality -->
+    <!-- Purpose: Uses Quill editor for detailed course communication instructions. -->
+    <!-- JS: Quill initialized via `initializeQuillEditor` (quillUtils.js). -->
+    <!-- JS: Synced to hidden textarea via `syncQuillEditors`. -->
+    <!-- Routes: Saved via `POST /syllabus/saveCourseCommunications`. -->
+
+    <hr>
+    <div class="section">
+        <h2>Topical Outline of Content</h2>
+        <div class="form-group">
+            <label for="datePicker">Course Start Date:</label>
+            <input type="date" class="spacing" id="datePicker" name="datePicker" value="2025-01-01" min="2025-01-01" max="2030-12-31" required>
+        </div>
+    
+        <div class="form-group">
+            <label for="moduleSelect">Number of Modules:</label>
+            <select class="spacing" id="moduleSelect" name="moduleSelect">
+                <!-- Options dynamically populated -->
+            </select>
+        </div>
+    
+        <div id="modulesContainer"></div>
+        <button type="button" id="addModuleButton">Add Module</button>
+    </div>
+    
+
+    <!-- Navigation Buttons -->
+    <button type="button" class="nav-button" data-step="1">BACK</button>
+    <button type="button" class="nav-button" data-step="3">NEXT</button>
+    <!-- JS: Navigation handled by `showStep` (eventInit.js). -->
+</div>
+<!-- Step 3: Grades & Assignments -->
+<div class="form-step" id="step3" style="display: none;">
+    <div class="section">
+        <h2>Weighting Details</h2>
+        <table id="weightingDetailsTable">
+            <colgroup>
+                <col>
+                <col>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Assessed Elements</th>
+                    <th>Weight (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dynamic rows will be added here -->
+            </tbody>
+            <tfoot>
+                <tr id="totalWeightRow">
+                    <td>Total</td>
+                    <td id="totalWeight">0%</td> <!-- Initially set to 0% -->
+                </tr>
+            </tfoot>
+        </table>
+        <!-- Functionality -->
+        <!-- Purpose: Allows users to input weight percentages for each assessed element. -->
+        <!-- JS: Rows dynamically added by `initializeWeightingTable` and updated via `updateTotalWeight` (eventInit.js). -->
+        <!-- Routes: Weighting details saved to the database via `POST /syllabus/saveWeightingDetails` (syllabusRoutes.js). -->
+    </div>
+
+    <hr>
+
+    <!-- Overview of Assignments Section -->
+    <div class="section" id="assignmentsContainer">
+        <h2>Overview of Assignments</h2>
+        <div id="assignmentsWrapper">
+            <!-- Assignment entries will be populated dynamically by JavaScript -->
+        </div>
+        <button type="button" id="addAssessedElementButton">Add Assignment</button>
+        <!-- Functionality -->
+        <!-- Purpose: Dynamically adds new assignments to the syllabus. -->
+        <!-- JS: Handled by `addAssignment` in `eventInit.js` to add new rows dynamically. -->
+        <!-- Routes: Data saved via `POST /syllabus/saveAssignments` (syllabusRoutes.js). -->
+    </div>
+
+    <hr>
+
+    <!-- Rubrics and Grading Procedures Section -->
+    <div class="section" id="gradingContainer">
+        <h2>Rubrics and Grading Procedures</h2>
+        <div id="gradingWrapper">
+            <!-- Grading blocks will be populated dynamically by JavaScript -->
+        </div>
+        <button type="button" id="addGradingElementButton">Add Element</button>
+        <!-- Functionality -->
+        <!-- Purpose: Dynamically adds grading elements to the syllabus. -->
+        <!-- JS: Handled via `addGradingElement` in `eventInit.js`. -->
+        <!-- Routes: Data saved via `POST /syllabus/saveGradingElements` (syllabusRoutes.js). -->
+    </div>
+
+    <!-- Navigation Buttons -->
+    <button type="button" class="nav-button" data-step="2">BACK</button>
+    <button type="button" class="nav-button" data-step="4">NEXT</button>
+    <!-- JS: Navigation handled by `showStep` (eventInit.js). -->
+</div>
+<!-- Step 4: Policies & Services -->
+<div class="form-step" id="step4" style="display: none;">
+    <!-- General Policies Section -->
+    <div class="section">
+        <h2>General Policies</h2>
+        <div class="form-group">
+            <div id="editor-generalPolicies" style="height: 200px;"></div>
+            <textarea id="generalPolicies" name="generalPolicies" style="display:none;" required></textarea>
+        </div>
+        <button type="button" class="save-button" onclick="saveSection('generalPolicies')">Save</button>
+        <!-- Functionality -->
+        <!-- Purpose: Allows input and saving of general policy details. -->
+        <!-- JS: Quill editor initialized by `initializeQuillEditor` (quillUtils.js). -->
+        <!-- JS: Save button triggers `saveSection` (eventInit.js) to sync Quill content to the hidden textarea and save it to the database. -->
+        <!-- Routes: Data saved via `POST /syllabus/savePolicies` (syllabusRoutes.js). -->
+    </div>
+    <hr>
+
+    <!-- Course Minimum Grade Section -->
+    <div class="section">
+        <h2>Course Minimum Grade</h2>
+        <div class="form-group">
+            <div id="editor-courseMinimumGrade" style="height: 200px;"></div>
+            <textarea id="courseMinimumGrade" name="courseMinimumGrade" style="display:none;" required></textarea>
+        </div>
+        <button type="button" class="save-button" onclick="saveSection('courseMinimumGrade')">Save</button>
+        <!-- Functionality -->
+        <!-- Purpose: Allows input and saving of minimum grade requirements. -->
+        <!-- JS: Quill editor handled by `initializeQuillEditor` (quillUtils.js). -->
+        <!-- JS: Save button triggers `saveSection` (eventInit.js). -->
+        <!-- Routes: Data saved via `POST /syllabus/savePolicies` (syllabusRoutes.js). -->
+    </div>
+    <hr>
+
+    <!-- Late and Make-up Work Section -->
+    <div class="section">
+        <h2>Late and Make-up Work</h2>
+        <div class="form-group">
+            <div id="editor-lateMakeupWork" style="height: 200px;"></div>
+            <textarea id="lateMakeupWork" name="lateMakeupWork" style="display:none;" required></textarea>
+        </div>
+        <button type="button" class="save-button" onclick="saveSection('lateMakeupWork')">Save</button>
+        <!-- Functionality -->
+        <!-- Purpose: Provides a section for instructors to define late and make-up work policies. -->
+        <!-- JS: Quill editor setup via `initializeQuillEditor` (quillUtils.js). -->
+        <!-- JS: Save logic handled by `saveSection` (eventInit.js). -->
+        <!-- Routes: Policy data sent via `POST /syllabus/savePolicies` (syllabusRoutes.js). -->
+    </div>
+    <hr>
+
+    <!-- Attendance Section -->
+    <div class="section">
+        <h2>Attendance</h2>
+        <div class="form-group">
+            <div id="editor-attendance" style="height: 200px;"></div>
+            <textarea id="attendance" name="attendance" style="display:none;" required></textarea>
+        </div>
+        <button type="button" class="save-button" onclick="saveSection('attendance')">Save</button>
+        <!-- Functionality -->
+        <!-- Purpose: Allows input of attendance policies. -->
+        <!-- JS: Quill editor handled by `initializeQuillEditor` (quillUtils.js). -->
+        <!-- JS: Save logic triggered via `saveSection` (eventInit.js). -->
+        <!-- Routes: Saved to database via `POST /syllabus/savePolicies` (syllabusRoutes.js). -->
+    </div>
+    <hr>
+
+    <!-- Other Policy Sections -->
+    <!-- These sections follow the same pattern as the ones above: -->
+    <!-- 1. Use Quill editors for rich-text editing. -->
+    <!-- 2. Save content via the `saveSection` function in eventInit.js. -->
+    <!-- 3. Save data through the `POST /syllabus/savePolicies` endpoint in syllabusRoutes.js. -->
+
+    <!-- Examples (Condensed for brevity): -->
+    <div class="section">
+        <h2>Incomplete</h2>
+        <div class="form-group">
+            <div id="editor-incomplete" style="height: 200px;"></div>
+            <textarea id="incomplete" name="incomplete" style="display:none;" required></textarea>
+        </div>
+        <button type="button" class="save-button" onclick="saveSection('incomplete')">Save</button>
+    </div>
+    <hr>
+
+    <div class="section">
+        <h2>Withdrawal from the Course</h2>
+        <div class="form-group">
+            <div id="editor-withdrawal" style="height: 200px;"></div>
+            <textarea id="withdrawal" name="withdrawal" style="display:none;" required></textarea>
+        </div>
+        <button type="button" class="save-button" onclick="saveSection('withdrawal')">Save</button>
+    </div>
+    <hr>
+    <div class="section">
+        <h2>Statement on Academic Rights & Responsibilities</h2>
+        <div class="form-group">
+            <div id="editor-academicRights" style="height: 200px;"></div>
+            <textarea id="academicRights" name="academicRights" style="display:none;" required></textarea>
+        </div>
+        <button type="button" class="save-button" onclick="saveSection('academicRights')">Save</button>
+    </div>
+    <hr>
+    <div class="section">
+        <h2>Academic Integrity</h2>
+        <div class="form-group">
+            <div id="editor-academicIntegrity" style="height: 200px;"></div>
+            <textarea id="academicIntegrity" name="academicIntegrity" style="display:none;" required></textarea>
+        </div>
+        <button type="button" class="save-button" onclick="saveSection('academicIntegrity')">Save</button>
+    </div>
+    <hr>    
+    <div class="section">
+        <h2>Netiquette</h2>
+        <div class="form-group">
+            <div id="editor-netiquette" style="height: 200px;"></div>
+            <textarea id="netiquette" name="netiquette" style="display:none;" required></textarea>
+        </div>
+        <button type="button" class="save-button" onclick="saveSection('netiquette')">Save</button>
+    </div>
+    <hr>
+    <div class="section">
+        <h2>Diversity & Inclusion</h2>
+        <div class="form-group">
+            <div id="editor-diversityInclusion" style="height: 200px;"></div>
+            <textarea id="diversityInclusion" name="diversityInclusion" style="display:none;" required></textarea>
+        </div>
+        <button type="button" class="save-button" onclick="saveSection('diversityInclusion')">Save</button>
+    </div>
+    <hr>
+    <div class="section">
+        <h2>Chosen Name</h2>
+        <div class="form-group">
+            <div id="editor-chosenName" style="height: 200px;"></div>
+            <textarea id="chosenName" name="chosenName" style="display:none;" required></textarea>
+        </div>
+        <button type="button" class="save-button" onclick="saveSection('chosenName')">Save</button>
+    </div>
+    <hr>
+    <div class="section">
+        <h2>Religious Observance Policy</h2>
+        <div class="form-group">
+            <div id="editor-religiousObservance" style="height: 200px;"></div>
+            <textarea id="religiousObservance" name="religiousObservance" style="display:none;" required></textarea>
+        </div>
+        <button type="button" class="save-button" onclick="saveSection('religiousObservance')">Save</button>
+    </div>
+    <hr>
+    <div class="section">
+        <h2>Student Academic Support</h2>
+        <div class="form-group">
+            <div id="editor-academicSupport" style="height: 200px;"></div>
+            <textarea id="academicSupport" name="academicSupport" style="display:none;" required></textarea>
+        </div>
+        <button type="button" class="save-button" onclick="saveSection('academicSupport')">Save</button>
+    </div>
+    <hr>
+    <div class="section">
+        <h2>Disability Disclosure Statement & Accessibility Services</h2>
+        <div class="form-group">
+            <div id="editor-disabilityDisclosure" style="height: 200px;"></div>
+            <textarea id="disabilityDisclosure" name="disabilityDisclosure" style="display:none;" required></textarea>
+        </div>
+        <button type="button" class="save-button" onclick="saveSection('disabilityDisclosure')">Save</button>
+    </div>
+    <hr>
+    <div class="section">
+        <h2>Information Technologies (IS&T) Information</h2>
+        <div class="form-group">
+            <div id="editor-informationTechnologies" style="height: 200px;"></div>
+            <textarea id="informationTechnologies" name="informationTechnologies" style="display:none;" required></textarea>
+        </div>
+        <button type="button" class="save-button" onclick="saveSection('informationTechnologies')">Save</button>
+    </div>
+    <hr>
+    <div class="section">
+        <h2>Counseling Services</h2>
+        <div class="form-group">
+            <div id="editor-counselingServices" style="height: 200px;"></div>
+            <textarea id="counselingServices" name="counselingServices" style="display:none;" required></textarea>
+        </div>
+        <button type="button" class="save-button" onclick="saveSection('counselingServices')">Save</button>
+    </div>
+    <hr>
+    <div class="section">
+        <h2>Title IX and Sexual Misconduct</h2>
+        <div class="form-group">
+            <div id="editor-titleIX" style="height: 200px;"></div>
+            <textarea id="titleIX" name="titleIX" style="display:none;" required></textarea>
+        </div>
+        <hr>
+        <div class="section">
+            <h2>Continuity of Instruction in the Event of Emergency</h2>
+            <div class="form-group">
+                <div id="editor-continuityInstruction" style="height: 200px;"></div>
+                <textarea id="continuityInstruction" name="continuityInstruction" style="display:none;" required></textarea>
+            </div>
+        <button type="button" class="save-button" onclick="saveSection('titleIX')">Save</button>
+    </div>
+    <!-- Navigation Buttons -->
+    <button type="button" class="nav-button" data-step="3">BACK</button>
+    <br>
+    <button type="submit">Submit Syllabus</button>
+    <button id="createHtmlButton" type="button">Create HTML</button>
+    <button id="viewHtmlButton" type="button" style="display: none;">View HTML</button>
+    <button id="downloadPdfButton" type="button" style="display: none;">Download PDF</button>
+    <!-- JS: Navigation managed by `showStep` in eventInit.js. -->
+    <!-- JS: Submit button triggers `submitSyllabus` (formSubmit.js). -->
+    <!-- Routes: Syllabus data posted via `POST /syllabus/submit` in syllabusRoutes.js. -->
+</div>
+<!-- Footer Buttons -->
+
+</form>
+    <!-- External Libraries -->
+    <!-- Load Quill.js library for rich-text editor functionality -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/quill/2.0.2/quill.js"></script>
+
+    <!-- Custom JavaScript Files -->
+    <!-- These scripts handle various parts of the form and interactions -->
+
+    <!-- formScript.js: Main script for form-level event handling and initialization -->
+    <script type="module" src="../js/formScript.js?v=1.1"></script>
+
+    <!-- formUtils.js: Utility functions for handling form data and logic -->
+    <script type="module" src="../js/formUtils.js"></script>
+
+    <!-- quillUtils.js: Utility functions for initializing and managing Quill editors -->
+    <script type="module" src="../js/quillUtils.js"></script>
+
+    <!-- formSubmit.js: Handles form submission, data validation, and saving -->
+    <script type="module" src="../js/formSubmit.js"></script>
+
+    <!-- assessmentManager.js: Dynamically manages program and student learning outcomes -->
+    <script type="module" src="../js/assessmentManager.js"></script>
+
+    <!-- moduleManager.js: Handles dynamic modules for the course content -->
+    <script type="module" src="../js/moduleManager.js"></script>
+
+    <!-- helper.js: Contains helper functions for DOM manipulation and event management -->
+    <script type="module" src="../js/helper.js"></script>
+
+    <!-- syllabusAPI.js: Manages interactions with the backend server API -->
+    <script type="module" src="../js/syllabusAPI.js"></script>
+
+    <!-- uiElements.js: Dynamically creates UI components like buttons and tables -->
+    <script type="module" src="../js/uiElements.js"></script>
+
+    <!-- eventInit.js: Initializes all event listeners for the form -->
+    <script type="module" src="../js/eventInit.js"></script>
+</body>
+
+</html>

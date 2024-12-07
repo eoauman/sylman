@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Loading Indicator */
+.loading {
+    display: none; /* Initially hidden */
+    font-size: 1.2em;
+    margin: 20px 0;
+    text-align: center;
+}
+
+/* Error Message Styling */
+#errorMessage {
+    color: red;
+    text-align: center;
+    margin: 10px 0;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px; /* Add some spacing */
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* Button Styling */
+#newSyllabusButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+#newSyllabusButton:hover {
+    background-color: #45a049;
+}

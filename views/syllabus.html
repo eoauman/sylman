@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= syllabus.syllabusData.courseTitle %></title>
+    <link rel="stylesheet" href="../public/css/style_syllabus.css">
+</head>
+
+<body>
+    <div class="content">
+        <div id="jcn_syllabus">
+            <p><img class="float-right" src="/images/TUJ_logo.png" alt="TUJ Logo" /></p>
+            <p>Jefferson College of Nursing<br />
+                Course Name: <span class="highlight"><%= syllabus.syllabusData.courseTitle %></span><br />
+                Course Number: <span class="highlight"><%= syllabus.syllabusData.courseNumber %></span><br />
+                Credits: <span class="highlight"><%= syllabus.syllabusData.courseCredits %></span><br />
+                Course Semester: <span class="highlight"><%= syllabus.syllabusData.courseSemester %></span><br />
+                Placement: <span class="highlight"><%= syllabus.syllabusData.placement %></span><br />
+                Course Type: <span class="highlight"><%= syllabus.syllabusData.courseType %></span><br />
+                Course Delivery: <span class="highlight"><%= syllabus.syllabusData.courseDelivery %></span><br />
+            </p>
+            <p class="text-center"><span class="faculty-info">Faculty Information</span></p>
+            <p>Faculty: <span class="highlight"><%= syllabus.syllabusData.courseLead %></span> (Course Lead)<br />
+                Email: <span class="highlight"><%= syllabus.syllabusData.leadEmail %></span><br />
+                Phone: <span class="highlight"><%= syllabus.syllabusData.leadPhone %></span><br />
+                Office: <span class="highlight"><%= syllabus.syllabusData.leadOffice %></span><br />
+                Office hours: <span class="highlight"><%= syllabus.syllabusData.leadOfficeHours %></span>
+            </p>
+            <p>&nbsp;</p>
+            <p>Faculty: <span class="highlight"><%= syllabus.syllabusData.additionalFacultyName %></span><br />
+                Email: <span class="highlight"><%= syllabus.syllabusData.additionalFacultyEmail %></span><br />
+                Phone: <span class="highlight"><%= syllabus.syllabusData.additionalFacultyPhone %></span><br />
+                Office: <span class="highlight"><%= syllabus.syllabusData.additionalFacultyOffice %></span><br />
+                Office hours: <span class="highlight"><%= syllabus.syllabusData.additionalFacultyOfficeHours %></span>
+            </p>
+            <hr class="double-border" />
+            <div class="tab">
+                <button class="tablinks" onclick="openTab(event, 'CourseDetails')">Course Details</button>
+                <button class="tablinks" onclick="openTab(event, 'GradesAssignments')">Grades & Assignments</button>
+                <button class="tablinks" onclick="openTab(event, 'PoliciesServices')">Policies & Services</button>
+            </div>
+            <div id="CourseDetails" class="tabcontent">
+                <hr class="double-border" />
+                <h3 id="details">Course Details</h3>
+                <p class="text-center"><span class="section-title">Course Prerequisites</span></p>
+                <p><span class="highlight"><%= syllabus.syllabusData.coursePrerequisites %></span></p>
+                <p class="text-center"><span class="section-title">Course Description</span></p>
+                <p><span class="highlight"><%= syllabus.syllabusData.courseDescription %></span></p>
+                <p class="text-center"><span class="section-title">Program Outcomes and Student Learning Outcomes</span></p>
+                <table class="full-width-table" border="0">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <p><strong>PROGRAM OUTCOMES</strong><br />Upon completion of the program, the student will be able to:</p>
+                            </td>
+                            <td>
+                                <p><strong>STUDENT LEARNING OUTCOMES</strong><br />Upon completion of this course, the student will be able to:</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <ol>
+                                    <li>Apply knowledge and principles from the arts, sciences, and humanities to the developmental, psychosocial, spiritual, and physical care of individuals, families, communities, and populations. (Essential I)</li>
+                                </ol>
+                            </td>
+                            <td>1.1 <span class="highlight"><%= syllabus.syllabusData.studentLearningOutcome1 %></span><br />1.2 <span class="highlight"><%= syllabus.syllabusData.studentLearningOutcome2 %></span></td>
+                        </tr>
+                        <!-- Continue for other program outcomes and student learning outcomes -->
+                    </tbody>
+                </table>
+                <!-- Add other sections similarly -->
+            </div>
+            <!-- Grades & Assignments Tab -->
+            <div id="GradesAssignments" class="tabcontent">
+                <hr class="double-border" />
+                <h3 id="grading">Grades&nbsp;& Assignments</h3>
+                <p class="text-center"><span class="section-title">Grading</span></p>
+                <table class="full-width-table" border="0">
+                    <caption class="text-left"><strong> <span>Scale</span> </strong></caption>
+                    <tbody>
+                        <tr>
+                            <th class="text-left"><strong>A Range</strong></th>
+                            <th class="text-left"><strong>B Range</strong></th>
+                            <th class="text-left"><strong>C Range</strong></th>
+                            <th class="text-left"><strong>D Range</strong></th>
+                            <th class="text-left"><strong>F Range</strong></th>
+                        </tr>
+                        <tr>
+                            <td>A+ 98 -100</td>
+                            <td>B+ 87 - 89</td>
+                            <td>C+ 77 - 79</td>
+                            <td>D+ 67 - 69</td>
+                            <td>F 0 - 59</td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">A&nbsp; &nbsp;93 - 97</td>
+                            <td class="text-left">B&nbsp; &nbsp;83 - 86</td>
+                            <td class="text-left">C&nbsp; &nbsp;73 - 76</td>
+                            <td class="text-left">D&nbsp; &nbsp;63 - 66</td>
+                            <td class="text-left"></td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">A- 90 - 92</td>
+                            <td class="text-left">B-&nbsp; 80 - 82</td>
+                            <td class="text-left">C- 70 - 72</td>
+                            <td class="text-left">D-&nbsp; 60 - 62</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>&nbsp;</p>
+                <p><strong>Weighting Details</strong></p>
+                <ul>
+                    <li><span class="highlight"><%= syllabus.syllabusData.assessedElement1 %> : 20%</span></li>
+                    <li><span class="highlight"><%= syllabus.syllabusData.assessedElement2 %> : 20%</span></li>
+                    <li><span class="highlight"><%= syllabus.syllabusData.assessedElement3 %> : 20%</span></li>
+                    <li><span class="highlight"><%= syllabus.syllabusData.assessedElement4 %> : 20%</span></li>
+                    <li><span class="highlight"><%= syllabus.syllabusData.assessedElement5 %> : 20%</span></li>
+                </ul>
+                <p><strong>Overview of Assignments</strong></p>
+                <ul>
+                    <li><span class="highlight"><%= syllabus.syllabusData.overviewAssignment1 %></span></li>
+                    <li><span class="highlight"><%= syllabus.syllabusData.overviewAssignment2 %></span></li>
+                    <li><span class="highlight"><%= syllabus.syllabusData.overviewAssignment3 %></span></li>
+                    <li><span class="highlight"><%= syllabus.syllabusData.overviewAssignment4 %></span></li>
+                    <li><span class="highlight"><%= syllabus.syllabusData.overviewAssignment5 %></span></li>
+                </ul>
+                <p><strong>Rubrics and Grading Procedures</strong></p>
+                <p>Rubrics are utilized throughout the semester for most assignments. Rubrics will be able to be accessed from any assignment that will be scored with one.&nbsp;</p>
+                <p><span class="highlight"><%= syllabus.syllabusData.additionalGradingDetails %></span></p>
+                <p class="text-right"><a href="#top">Back to top</a></p>
+            </div>
+            <!-- Policies & Services Tab -->
+            <div id="PoliciesServices" class="tabcontent">
+                <hr class="double-border" />
+                <h3 id="policies">Policies &amp; Services</h3>
+            
+                <p class="section-title">General Policies</p>
+                <p><%= syllabus.syllabusData.policiesAndServices.generalPolicies %></p>
+            
+                <p class="section-title">Course Minimum Grade</p>
+                <p><%= syllabus.syllabusData.policiesAndServices.courseMinimumGrade %></p>
+            
+                <p class="section-title">Late and Make-up Work</p>
+                <p><%= syllabus.syllabusData.policiesAndServices.lateMakeupWork %></p>
+            
+                <p class="section-title">Attendance</p>
+                <p><%= syllabus.syllabusData.policiesAndServices.attendance %></p>
+            
+                <p class="section-title">Incomplete</p>
+                <p><%= syllabus.syllabusData.policiesAndServices.incomplete %></p>
+            
+                <p class="section-title">Withdrawal from the Course</p>
+                <p><%= syllabus.syllabusData.policiesAndServices.withdrawal %></p>
+            
+                <p class="section-title">Statement on Academic Rights &amp; Responsibilities</p>
+                <p><%= syllabus.syllabusData.policiesAndServices.academicRights %></p>
+            
+                <p class="section-title">Academic Integrity</p>
+                <p><%= syllabus.syllabusData.policiesAndServices.academicIntegrity %></p>
+            
+                <p class="section-title">Netiquette</p>
+                <p><%= syllabus.syllabusData.policiesAndServices.netiquette %></p>
+            
+                <p class="section-title">Diversity &amp; Inclusion</p>
+                <p><%= syllabus.syllabusData.policiesAndServices.diversityInclusion %></p>
+            
+                <p class="section-title">Chosen Name</p>
+                <p><%= syllabus.syllabusData.policiesAndServices.chosenName %></p>
+            
+                <p class="section-title">Religious Observance Policy</p>
+                <p><%= syllabus.syllabusData.policiesAndServices.religiousObservance %></p>
+            
+                <p class="section-title">Student Academic Support</p>
+                <p><%= syllabus.syllabusData.policiesAndServices.academicSupport %></p>
+            
+                <p class="section-title">Disability Disclosure Statement &amp; Accessibility Services</p>
+                <p><%= syllabus.syllabusData.policiesAndServices.disabilityDisclosure %></p>
+            
+                <p class="section-title">Information Technologies (IS&T) Information</p>
+                <p><%= syllabus.syllabusData.policiesAndServices.informationTechnologies %></p>
+            
+                <p class="section-title">Counseling Services</p>
+                <p><%= syllabus.syllabusData.policiesAndServices.counselingServices %></p>
+            
+                <p class="section-title">Title IX and Sexual Misconduct</p>
+                <p><%= syllabus.syllabusData.policiesAndServices.titleIX %></p>
+            
+                <p class="section-title">Continuity of Instruction in the Event of Emergency</p>
+                <p><%= syllabus.syllabusData.policiesAndServices.continuityInstruction %></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+
+</html>

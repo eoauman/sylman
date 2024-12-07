@@ -1,0 +1,60 @@
+/* General Reset and Body Styling */
+body {
+    font-family: 'Roboto', Arial, sans-serif; /* Modern font */
+    text-align: center;
+    background: radial-gradient(circle at top right, #0d324d 5%, #001f33 90%); /* Deep blue gradient */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333; /* Dark text for contrast on white */
+}
+
+/* Login Box */
+.container {
+    background-color: #ffffff; /* White background for the box */
+    color: #333; /* Dark text for contrast */
+    padding: 30px 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+    width: 90%;
+    max-width: 400px; /* Limits width for larger screens */
+    text-align: center;
+}
+
+/* Headings */
+.container h1 {
+    font-size: 1.8em;
+    color: #333; /* Dark text */
+    margin-bottom: 15px;
+}
+
+/* Links */
+a {
+    color: #2575fc; /* Lighter blue for links */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Input Fields (if needed) */
+input {
+    margin-bottom: 12px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95%; /* More fluid width on smaller screens */
+        padding: 20px;
+    }
+}
